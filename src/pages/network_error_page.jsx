@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function NetworkError() {
+export default function NetworkErrorPage() {
   return <p>Network Error!</p>;
 }
