@@ -23,7 +23,6 @@ export default function Form() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log("Logged In!");
         setError("");
         setEmail("");
         setPassword("");

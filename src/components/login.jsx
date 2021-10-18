@@ -9,7 +9,7 @@ export default function Login() {
       <div className="bg-white border p-3 rounded mr-8 hidden md:block">
         <img src="/images/general/kid-with-hat.jpg" alt="Kid with a hat" className="max-h-96" />
       </div>
-      <div className="bg-white border border-gray-primary px-4 py-6 max-w-xs flex-grow">
+      <div className="bg-white border border-gray-light px-4 py-6 max-w-xs flex-grow">
         <h1 className="mb-4 text-center font-bold text-xl">Login</h1>
         <Form />
         <p className="text-sm text-gray-primary text-center">Don`t have an account?</p>
