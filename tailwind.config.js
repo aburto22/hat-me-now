@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         blue: {
+          disabled: "#A1C7D4",
           primary: "#239ECB",
           hover: "#64B4D1",
         },
