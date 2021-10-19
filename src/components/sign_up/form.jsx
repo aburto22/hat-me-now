@@ -45,7 +45,7 @@ export default function Form() {
 
     // TODO send message to login page letting user know account has been created and he can login now.
 
-    history.push(ROUTES.LOGIN, {});
+    history.push(ROUTES.HOME, {});
   }
 
   return (
