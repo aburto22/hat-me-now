@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import { getAllItems } from "../helpers/db";
 import ItemTile from "./shop/item_tile";
 
