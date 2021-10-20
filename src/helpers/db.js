@@ -39,7 +39,20 @@ export async function addItemToCart(userId, newItem) {
   const db = getFirestore(firebase);
   const cart = await getCartByUserId(userId);
 
-  cart.items = [...cart.items, newItem];
+  const index = cart.items.findIndex((item) => item.itemId === newItem.itemId);
+
+  // Check qty in stock is superior to qty of items user has on cart.
+  const itemInfo = await getItemById(newItem.itemId);
+
+  if (index >= 0) {
+    if (cart.items[index].qty + newItem.qty >= itemInfo.qty) {
+      cart.items[index].qty = itemInfo.qty;
+    } else {
+      cart.items[index].qty += newItem.qty;
+    }
+  } else {
+    cart.items = [...cart.items, newItem];
+  }
 
   await setDoc(doc(db, "carts", cart.docId), cart);
 

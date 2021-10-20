@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getItemById, addItemToCart } from "../helpers/db";
+import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
-import UserContext from "../context/user_context";
+import addItemToCart from "../helpers/local_storage";
 
 export default function Item() {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [qty, setQty] = useState(1);
-  const userId = useContext(UserContext);
   const [isItemBought, setIsItemBought] = useState(false);
 
   const defaultDescription =
@@ -36,22 +35,7 @@ export default function Item() {
   }
 
   async function handleClick() {
-    if (userId) {
-      const cart = await addItemToCart(userId, { itemId, qty: 1 });
-      localStorage.setItem("cart", JSON.stringify(cart));
-    } else {
-      let cart = localStorage.getItem("cart");
-
-      if (!cart) {
-        cart = [];
-      } else {
-        cart = JSON.parse(cart);
-      }
-
-      cart.push({ itemId, qty });
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-
+    await addItemToCart(itemId, qty);
     setIsItemBought(true);
   }
 
@@ -69,6 +53,7 @@ export default function Item() {
             </div>
             <div className="w-full sm:w-1/2 flex flex-col items-center justify-center mb-8">
               <p className="text-2xl mb-4 text-gray-primary">{item.name}</p>
+              <p className="text-xl text-gray-primary mb-4">{toUsd(item.price)}</p>
               <div className="flex">
                 <button type="button" onClick={handleDecreaseQty}>
                   <svg
@@ -82,7 +67,7 @@ export default function Item() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="1"
-                      d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M20 12H4"
                     />
                   </svg>
                 </button>
@@ -99,13 +84,14 @@ export default function Item() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="1"
-                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M12 4v16m8-8H4"
                     />
                   </svg>
                 </button>
               </div>
-              <p className="text-xs mb-4 font-light text-gray-primary">qty in stock: {item.qty}</p>
-              <p className="text-xl text-gray-primary mb-4">{toUsd(item.price)}</p>
+              <p className="text-xs mt-2 mb-4 font-light text-gray-primary">
+                qty in stock: {item.qty}
+              </p>
               <button
                 type="button"
                 onClick={handleClick}

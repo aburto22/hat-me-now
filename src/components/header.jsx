@@ -82,7 +82,11 @@ export default function Header() {
             <span className="hidden sm:block">Cart</span>
           </NavLink>
           <div className="relative ml-auto">
-            <button type="button" onClick={handleToggle} className="mt-2 mr-4 sm:hidden">
+            <button
+              type="button"
+              onClick={handleToggle}
+              className="mt-2 mr-4 sm:hidden hover:text-blue-hover"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-7 w-7"
@@ -105,7 +109,7 @@ export default function Header() {
             >
               <button
                 type="button"
-                className="absolute top-0 right-0 my-3 mx-5 sm:hidden"
+                className="absolute top-0 right-0 my-3 mx-5 sm:hidden hover:text-blue-hover"
                 onClick={handleToggle}
               >
                 <svg

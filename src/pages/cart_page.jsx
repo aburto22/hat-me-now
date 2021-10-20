@@ -1,5 +1,14 @@
 import React from "react";
+import Header from "../components/header";
+import Cart from "../components/cart";
+import Footer from "../components/footer";
 
 export default function CartPage() {
-  return <p>I am the cart</p>;
+  return (
+    <div className="bg-gray-body bg-body-pattern min-h-screen">
+      <Header />
+      <Cart />
+      <Footer />
+    </div>
+  );
 }
