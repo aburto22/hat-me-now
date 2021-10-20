@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+  @apply border-b border-gray-primary py-2 px-2 mx-2 hover:border-blue-hover text-sm font-light uppercase text-center;
+}

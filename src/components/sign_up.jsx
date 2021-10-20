@@ -6,7 +6,7 @@ import Form from "./sign_up/form";
 export default function Login() {
   return (
     <div className="h-full flex items-center justify-center">
-      <div className="bg-white border p-3 rounded mr-8 hidden md:block">
+      <div className="bg-white border p-3 mr-8 hidden md:block">
         <img src="/images/general/kid-with-hat.jpg" alt="Kid with a hat" className="max-h-96" />
       </div>
       <div className="bg-white border border-gray-light px-4 py-6 max-w-xs flex-grow">

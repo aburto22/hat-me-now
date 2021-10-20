@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      maxWidth: {
+        "nav-link": "6rem",
+      },
       colors: {
         blue: {
           disabled: "#A1C7D4",
