@@ -10,7 +10,7 @@ export default function ItemTile({ item }) {
   return (
     <Link
       to={`/item/${item.itemId}`}
-      className="w-64 h-80 bg-white flex flex-col cursor hover:border border-2 border-white hover:border-gray-light items-stretch m-2"
+      className="w-64 bg-white flex flex-col cursor hover:border border-2 border-white hover:border-gray-light items-stretch m-2"
     >
       <div className="w-full mb-4">
         <img
@@ -25,7 +25,7 @@ export default function ItemTile({ item }) {
           {item.description ? item.description : defaultDescription}
         </p>
       </div>
-      <p className="mx-3 font-bold text-center">{toUsd(item.price)}</p>
+      <p className="mx-3 font-bold text-center mb-8">{toUsd(item.price)}</p>
     </Link>
   );
 }
