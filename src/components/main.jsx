@@ -3,7 +3,7 @@ import React from "react";
 export default function Main() {
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
-      <div className="self-stretch border-b border-gray-light relative mb-10">
+      <div className="self-stretch border-b border-gray-light relative mb-6">
         <img
           src="/images/general/main-hat.jpg"
           alt="Woman with hat in swimming pool"
@@ -13,7 +13,7 @@ export default function Main() {
           <h1 className="text-xl text-center font-light text-black">Welcome!</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 border-b border-gray-light self-stretch px-2">
+      <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 mb-6 self-stretch px-2">
         <p className="text-center mb-2 italic max-w-xs font-light">
           This is <span className="text-blue-primary font-bold not-italic">Hat me Now</span>, the
           most trendy and fashionable hat store you will ever going to find.
