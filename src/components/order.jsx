@@ -61,7 +61,7 @@ export default function Order() {
   const orderDisplay =
     userId === order?.userId ? (
       <>
-        <h2 className="font-light mb-6">
+        <h2 className="font-light mb-6 mt-2 mx-4 text-center">
           Order Id: <span className="font-bold">{order.orderId}</span>
         </h2>
         <table className="mb-8 mx-2">
@@ -104,7 +104,7 @@ export default function Order() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
+    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
       <div className="self-stretch border-b border-gray-light relative mb-10">
         <img
           src="/images/general/order-hat.jpg"
@@ -115,6 +115,26 @@ export default function Order() {
           <h1 className="text-xl text-center font-light text-black">Your order</h1>
         </div>
       </div>
+      <Link
+        to={ROUTES.PROFILE}
+        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-52 left-4 sm:left-8"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 25 25"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1"
+            d="M11 17l-5-5m0 0l5-5m-5 5h12"
+          />
+        </svg>
+        <p>Go back to profile</p>
+      </Link>
       {order ? orderDisplay : <Loading />}
     </div>
   );
