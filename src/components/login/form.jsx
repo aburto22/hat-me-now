@@ -41,7 +41,7 @@ export default function Form() {
       {error && <p className="font-bold text-sm text-red-500 text-center mb-2">{error}</p>}
       <div className="mb-2 mt-2">
         <label htmlFor="email">
-          <span className="text-xs font-bold text-gray-primary block mb-1">E-mail:</span>
+          <span className="text-xs font-bold block mb-1">E-mail:</span>
           <input
             type="email"
             placeholder="my@email.com"
@@ -56,7 +56,7 @@ export default function Form() {
       </div>
       <div className="mb-6">
         <label htmlFor="password">
-          <span className="text-xs font-bold text-gray-primary block mb-1">Password:</span>
+          <span className="text-xs font-bold block mb-1">Password:</span>
           <input
             type="password"
             placeholder="********"

@@ -18,7 +18,7 @@ export default function OrdersTable({ orders }) {
   ));
 
   return (
-    <table className="mb-8 mx-2 text-gray-primary">
+    <table className="mb-8 mx-2">
       <thead>
         <tr>
           <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
