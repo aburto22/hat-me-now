@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import * as ROUTES from "../constants/routes";
@@ -8,6 +8,10 @@ export default function Header() {
   const user = useContext(UserContext);
   const history = useHistory();
   const [navCollapseShown, setNavCollapseShown] = useState(false);
+
+  useEffect(() => {
+    setNavCollapseShown(false);
+  }, []);
 
   function handleLogout() {
     const auth = getAuth();

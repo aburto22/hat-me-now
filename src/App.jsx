@@ -47,8 +47,8 @@ function App() {
             <ProtectedRoute Component={OrderPage} />
           </Route>
           <Route path={ROUTES.ERROR} component={ErrorPage} />
+          <Route component={NotFoundPage} />
         </Switch>
-        <Route path="/" component={NotFoundPage} />
       </Suspense>
     </UserContext.Provider>
   );
