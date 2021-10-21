@@ -3,13 +3,13 @@ import React from "react";
 export default function Main() {
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
-      <div className="self-stretch border-b border-gray-light relative">
+      <div className="self-stretch border-b border-gray-light relative mb-10">
         <img
           src="/images/general/main-hat.jpg"
           alt="Woman with hat in swimming pool"
-          className="w-full max-h-96 object-cover"
+          className="w-full h-48 object-cover"
         />
-        <div className="absolute bg-white bg-opacity-50 top-4 md:top-4 left-0 w-full py-4">
+        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
           <h1 className="text-xl text-center font-light text-black">Welcome!</h1>
         </div>
       </div>
