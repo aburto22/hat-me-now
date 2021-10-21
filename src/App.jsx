@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import UserContext from "./context/user_context";
 import useAuthListener from "./hooks/use_auth_listener";
+import ProtectedRoute from "./components/protected_route";
+import OnlyPublicRoute from "./components/only_public_route";
 
 const HomePage = lazy(() => import("./pages/home_page"));
 const LoginPage = lazy(() => import("./pages/login_page"));
@@ -14,6 +16,7 @@ const CheckoutPage = lazy(() => import("./pages/checkout_page"));
 const ProfilePage = lazy(() => import("./pages/profile_page"));
 const ErrorPage = lazy(() => import("./pages/error_page"));
 const OrderPage = lazy(() => import("./pages/order_page"));
+const NotFoundPage = lazy(() => import("./pages/not_found_page"));
 
 // Consider adding a NetworkError feature in the future.
 
@@ -24,17 +27,28 @@ function App() {
     <UserContext.Provider value={user}>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
+          <Route exact path={ROUTES.HOME} component={HomePage} />
           <Route exact path={ROUTES.SHOP} component={ShopPage} />
-          <Route exact path={ROUTES.LOGIN} component={LoginPage} />
-          <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route exact path={ROUTES.ITEM} component={ItemPage} />
           <Route exact path={ROUTES.CART} component={CartPage} />
-          <Route exact path={ROUTES.CHECKOUT} component={CheckoutPage} />
-          <Route exact path={ROUTES.PROFILE} component={ProfilePage} />
-          <Route exact path={ROUTES.HOME} component={HomePage} />
-          <Route exact path={ROUTES.ORDER} component={OrderPage} />
+          <Route exact path={ROUTES.LOGIN}>
+            <OnlyPublicRoute Component={LoginPage} />
+          </Route>
+          <Route exact path={ROUTES.SIGN_UP}>
+            <OnlyPublicRoute Component={SignUpPage} />
+          </Route>
+          <Route exact path={ROUTES.CHECKOUT}>
+            <ProtectedRoute Component={CheckoutPage} />
+          </Route>
+          <Route exact path={ROUTES.PROFILE}>
+            <ProtectedRoute Component={ProfilePage} />
+          </Route>
+          <Route exact path={ROUTES.ORDER}>
+            <ProtectedRoute Component={OrderPage} />
+          </Route>
           <Route path={ROUTES.ERROR} component={ErrorPage} />
         </Switch>
+        <Route path="/" component={NotFoundPage} />
       </Suspense>
     </UserContext.Provider>
   );

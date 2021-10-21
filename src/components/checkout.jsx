@@ -24,6 +24,8 @@ export default function Checkout() {
     history.push(ROUTES.HOME);
   }
 
+  // TODO add validator to prevent checkout if cart is empty.
+
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8">
       <div className="self-stretch border-b border-gray-light relative mb-10">
@@ -45,7 +47,7 @@ export default function Checkout() {
       <button
         type="button"
         onClick={handleCheckout}
-        className="px-4 py-2 bg-blue-primary text-white hover:bg-blue-hover rounded"
+        className="px-4 py-2 bg-blue-primary text-white hover:bg-blue-hover rounded mb-4"
       >
         Checkout my order
       </button>
