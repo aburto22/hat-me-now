@@ -17,9 +17,9 @@ export default function Header() {
     const auth = getAuth();
     signOut(auth)
       .then(() => history.push(ROUTES.HOME))
-      .catch((error) => {
+      .catch(() => {
         // TODO pass error message to error page.
-        console.error(error.message, error.code);
+        // console.error(error.message, error.code);
         history.push(ROUTES.ERROR);
       });
   }

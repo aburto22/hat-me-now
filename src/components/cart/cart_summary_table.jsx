@@ -21,8 +21,8 @@ export default function CartSummaryTable({ items, setItems }) {
         .then((result) => {
           setItems(result);
         })
-        .catch((err) => {
-          console.error(err.message, err.code);
+        .catch(() => {
+          // console.error(err.message, err.code);
           history.push(ROUTES.ERROR);
         });
     }
