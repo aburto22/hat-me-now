@@ -1,4 +1,15 @@
-import { getFirestore, setDoc, doc, collection, getDocs, where, query } from "firebase/firestore";
+import {
+  getFirestore,
+  addDoc,
+  setDoc,
+  updateDoc,
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  where,
+  query,
+} from "firebase/firestore";
 import { firebase } from "../services/firebase";
 
 // Creates an user in both auth and DB spaces. if user is successfully created, return an object with the userId. if not, return an object with the error message
@@ -57,4 +68,58 @@ export async function addItemToCart(userId, newItem) {
   await setDoc(doc(db, "carts", cart.docId), cart);
 
   return [...cart.items];
+}
+
+export async function addOrderToUser(userId, cart) {
+  Promise.all(
+    cart.map(async (item) => {
+      const itemInfo = await getItemById(item.itemId);
+
+      return { ...item, price: itemInfo.price };
+    })
+  ).then(async (result) => {
+    const db = getFirestore(firebase);
+
+    const totalCost = result.reduce((sum, item) => sum + item.qty * item.price, 0);
+
+    const order = { items: result, totalCost, userId };
+
+    const docRef = await addDoc(collection(db, "orders"), order);
+
+    await updateDoc(doc(db, "orders", docRef.id), {
+      orderId: docRef.id,
+    });
+  });
+}
+
+export async function getUserById(userId) {
+  const db = getFirestore(firebase);
+
+  const q = query(collection(db, "users"), where("userId", "==", userId));
+  const userRaw = await getDocs(q);
+
+  const userArray = userRaw.docs.map((user) => ({ ...user.data(), docId: user.id }));
+
+  return userArray.length > 0 ? userArray[0] : null;
+}
+
+export async function getOrdersByUserId(userId) {
+  const db = getFirestore(firebase);
+
+  const q = query(collection(db, "orders"), where("userId", "==", userId));
+  const ordersRaw = await getDocs(q);
+
+  const ordersArray = ordersRaw.docs.map((order) => ({ ...order.data(), docId: order.id }));
+
+  return ordersArray;
+}
+
+export async function getOrderById(orderId) {
+  const db = getFirestore(firebase);
+
+  console.log("orderId: ", orderId);
+
+  const orderRaw = await getDoc(doc(db, "orders", orderId));
+
+  return orderRaw.data();
 }

@@ -7,3 +7,4 @@ export const PROFILE = "/profile";
 export const CART = "/cart";
 export const CHECKOUT = "/checkout";
 export const ERROR = "/error";
+export const ORDER = "/order/:orderId";

@@ -13,6 +13,7 @@ const CartPage = lazy(() => import("./pages/cart_page"));
 const CheckoutPage = lazy(() => import("./pages/checkout_page"));
 const ProfilePage = lazy(() => import("./pages/profile_page"));
 const ErrorPage = lazy(() => import("./pages/error_page"));
+const OrderPage = lazy(() => import("./pages/order_page"));
 
 // Consider adding a NetworkError feature in the future.
 
@@ -23,15 +24,16 @@ function App() {
     <UserContext.Provider value={user}>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route path={ROUTES.SHOP} component={ShopPage} />
-          <Route path={ROUTES.LOGIN} component={LoginPage} />
-          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-          <Route path={ROUTES.ITEM} component={ItemPage} />
-          <Route path={ROUTES.CART} component={CartPage} />
-          <Route path={ROUTES.CHECKOUT} component={CheckoutPage} />
-          <Route path={ROUTES.PROFILE} component={ProfilePage} />
+          <Route exact path={ROUTES.SHOP} component={ShopPage} />
+          <Route exact path={ROUTES.LOGIN} component={LoginPage} />
+          <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+          <Route exact path={ROUTES.ITEM} component={ItemPage} />
+          <Route exact path={ROUTES.CART} component={CartPage} />
+          <Route exact path={ROUTES.CHECKOUT} component={CheckoutPage} />
+          <Route exact path={ROUTES.PROFILE} component={ProfilePage} />
+          <Route exact path={ROUTES.HOME} component={HomePage} />
+          <Route exact path={ROUTES.ORDER} component={OrderPage} />
           <Route path={ROUTES.ERROR} component={ErrorPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
         </Switch>
       </Suspense>
     </UserContext.Provider>

@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/header";
-import Profile from "../components/profile";
 import Footer from "../components/footer";
+import Order from "../components/order";
 
-export default function ProfilePage() {
+export default function OrderPage() {
   return (
     <div className="bg-gray-body bg-body-pattern min-h-screen">
       <Header />
-      <Profile />
+      <Order />
       <Footer />
     </div>
   );

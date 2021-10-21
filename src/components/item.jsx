@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
 import addItemToCart from "../helpers/local_storage";
+import Loading from "./common/loading";
 
 export default function Item() {
   const { itemId } = useParams();
@@ -40,7 +41,7 @@ export default function Item() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4">
+    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary">
       {item ? (
         <>
           <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 sm:mx-8 lg:mx-0 sm:w-full md:w-4/5">
@@ -52,8 +53,8 @@ export default function Item() {
               />
             </div>
             <div className="w-full sm:w-1/2 flex flex-col items-center justify-center mb-8">
-              <p className="text-2xl mb-4 text-gray-primary">{item.name}</p>
-              <p className="text-xl text-gray-primary mb-4">{toUsd(item.price)}</p>
+              <p className="text-2xl mb-4">{item.name}</p>
+              <p className="text-xl mb-4">{toUsd(item.price)}</p>
               <div className="flex">
                 <button type="button" onClick={handleDecreaseQty}>
                   <svg
@@ -89,9 +90,7 @@ export default function Item() {
                   </svg>
                 </button>
               </div>
-              <p className="text-xs mt-2 mb-4 font-light text-gray-primary">
-                qty in stock: {item.qty}
-              </p>
+              <p className="text-xs mt-2 mb-4 font-light">qty in stock: {item.qty}</p>
               <button
                 type="button"
                 onClick={handleClick}
@@ -112,9 +111,7 @@ export default function Item() {
           </div>
         </>
       ) : (
-        <div className="py-20">
-          <p>Loading Item</p>
-        </div>
+        <Loading />
       )}
     </div>
   );
