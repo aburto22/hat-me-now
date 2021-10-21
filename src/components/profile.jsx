@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../context/user_context";
-// import * as ROUTES from "../constants/routes";
 import { getUserById, getOrdersByUserId } from "../helpers/db";
 import OrdersTable from "./profile/orders_table";
 import Loading from "./common/loading";
@@ -16,12 +15,21 @@ export default function Checkout() {
       setUser(userDb);
 
       const ordersDb = await getOrdersByUserId(userId);
-      console.log("ordersDb: ", ordersDb);
       setOrders(ordersDb);
     }
 
     getInfoFromDb();
   }, []);
+
+  const dispOrders =
+    orders.length > 0 ? (
+      <>
+        <p className="font-light mb-4">Your previous orders:</p>
+        <OrdersTable orders={orders} />
+      </>
+    ) : (
+      <p className="font-light mb-4">You don&apos;t have any orders.</p>
+    );
 
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
@@ -42,12 +50,7 @@ export default function Checkout() {
             <p className="font-light mb-2">
               Your email address: <span className="font-bold text-sm">{user.emailAddress}</span>
             </p>
-            <p className="font-light mb-4">Your previous orders:</p>
-            {orders.length > 0 ? (
-              <OrdersTable orders={orders} />
-            ) : (
-              <p className="font-light mb-4">You don&apos;t have any orders.</p>
-            )}
+            {dispOrders}
           </>
         ) : (
           <Loading />

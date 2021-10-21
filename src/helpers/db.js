@@ -117,8 +117,6 @@ export async function getOrdersByUserId(userId) {
 export async function getOrderById(orderId) {
   const db = getFirestore(firebase);
 
-  console.log("orderId: ", orderId);
-
   const orderRaw = await getDoc(doc(db, "orders", orderId));
 
   return orderRaw.data();
