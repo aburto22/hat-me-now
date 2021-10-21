@@ -115,7 +115,7 @@ export default function CartSummaryTable({ items, setItems }) {
           </tbody>
         </table>
       ) : (
-        <p className="font-light mb-6">
+        <p className="font-light mb-6 mx-2 text-center">
           You don&apos;t have any items on your cart. Go shipping now!
         </p>
       )}

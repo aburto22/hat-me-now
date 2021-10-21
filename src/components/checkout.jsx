@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../context/user_context";
 import { addOrderToUser } from "../helpers/db";
-import * as ROUTES from "../constants/routes";
 
 export default function Checkout() {
   const history = useHistory();
@@ -17,11 +17,11 @@ export default function Checkout() {
 
     cart = JSON.parse(cart);
 
-    await addOrderToUser(userId, cart);
+    const orderId = await addOrderToUser(userId, cart);
 
     localStorage.setItem("cart", []);
 
-    history.push(ROUTES.HOME);
+    history.push(`/order/${orderId}`);
   }
 
   // TODO add validator to prevent checkout if cart is empty.

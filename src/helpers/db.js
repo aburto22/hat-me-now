@@ -71,25 +71,31 @@ export async function addItemToCart(userId, newItem) {
 }
 
 export async function addOrderToUser(userId, cart) {
-  Promise.all(
+  return Promise.all(
     cart.map(async (item) => {
       const itemInfo = await getItemById(item.itemId);
 
       return { ...item, price: itemInfo.price };
     })
-  ).then(async (result) => {
-    const db = getFirestore(firebase);
+  )
+    .then(async (result) => {
+      const db = getFirestore(firebase);
 
-    const totalCost = result.reduce((sum, item) => sum + item.qty * item.price, 0);
+      const totalCost = result.reduce((sum, item) => sum + item.qty * item.price, 0);
 
-    const order = { items: result, totalCost, userId };
+      const order = { items: result, totalCost, userId };
 
-    const docRef = await addDoc(collection(db, "orders"), order);
+      const docRef = await addDoc(collection(db, "orders"), order);
 
-    await updateDoc(doc(db, "orders", docRef.id), {
-      orderId: docRef.id,
-    });
-  });
+      await updateDoc(doc(db, "orders", docRef.id), {
+        orderId: docRef.id,
+      });
+
+      console.log("docRef.id: ", docRef.id);
+
+      return docRef.id;
+    })
+    .catch((err) => console.error(err.message, err.code));
 }
 
 export async function getUserById(userId) {
