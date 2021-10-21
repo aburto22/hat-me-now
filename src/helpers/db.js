@@ -91,8 +91,6 @@ export async function addOrderToUser(userId, cart) {
         orderId: docRef.id,
       });
 
-      console.log("docRef.id: ", docRef.id);
-
       return docRef.id;
     })
     .catch((err) => console.error(err.message, err.code));

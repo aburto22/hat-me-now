@@ -81,7 +81,7 @@ export default function CartSummaryTable({ items, setItems }) {
 
   return (
     <>
-      {cart.length > 2 ? (
+      {cart?.length > 2 ? (
         <table className="mb-8 mx-2">
           <thead>
             <tr>

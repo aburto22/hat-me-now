@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
 import addItemToCart from "../helpers/local_storage";
 import Loading from "./common/loading";
+import * as ROUTES from "../constants/routes";
 
 export default function Item() {
   const { itemId } = useParams();
@@ -41,10 +42,30 @@ export default function Item() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary">
+    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary relative">
+      <Link
+        to={ROUTES.SHOP}
+        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 sm:left-8"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 25 25"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1"
+            d="M11 17l-5-5m0 0l5-5m-5 5h12"
+          />
+        </svg>
+        <p>Go back to the store</p>
+      </Link>
       {item ? (
         <>
-          <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 sm:mx-8 lg:mx-0 sm:w-full md:w-4/5">
+          <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 mt-8 sm:mx-8 lg:mx-0 sm:w-full md:w-4/5">
             <div className="sm:w-1/2 mb-8 w-full">
               <img
                 src={`/images/items/${item.name.toLowerCase()}.jpg`}
