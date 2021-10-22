@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { getAllItems } from "../helpers/db";
-import ItemTile from "./shop/item_tile";
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-unused-vars */
+import React, { Suspense } from "react";
+import Skeleton from "react-loading-skeleton";
+import AllItemsTiles from "./shop/all_items_tiles";
 
 export default function Shop() {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    async function getItems() {
-      const result = await getAllItems();
-
-      setItems(result);
-    }
-
-    getItems();
-  }, []);
-
-  const itemTiles = items.map((item) => <ItemTile item={item} key={item.docId} />);
-
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch border-b border-gray-light relative mb-10">
@@ -33,7 +21,7 @@ export default function Shop() {
           </h1>
         </div>
       </div>
-      <div className="flex flex-wrap justify-center px-2">{itemTiles}</div>
+      <AllItemsTiles />
     </div>
   );
 }

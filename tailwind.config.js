@@ -17,6 +17,7 @@ module.exports = {
           body: "#fdfdfd",
           light: "#D4D4D8",
           primary: "#3F3F46",
+          skeleton: "#dbdbdb",
         },
       },
       backgroundImage: {
