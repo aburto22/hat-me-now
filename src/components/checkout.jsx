@@ -30,7 +30,9 @@ export default function Checkout() {
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8">
       <div className="self-stretch border-b border-gray-light relative mb-10">
         <img
-          src="/images/general/checkout-hat.jpg"
+          src="/images/general/checkout-hat-large.jpg"
+          srcSet="/images/general/checkout-hat-large.jpg 900w, /images/general/checkout-hat-small.jpg 640w"
+          sizes="min(900px, 100vw)"
           alt="Woman with hat with flower"
           className="w-full h-48 object-cover"
         />

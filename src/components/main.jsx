@@ -5,7 +5,9 @@ export default function Main() {
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
       <div className="self-stretch border-b border-gray-light relative mb-6">
         <img
-          src="/images/general/main-hat.jpg"
+          src="/images/general/main-hat-large.jpg"
+          srcSet="/images/general/main-hat-large.jpg 900w, /images/general/main-hat-small.jpg 640w"
+          sizes="min(900px, 100vw)"
           alt="Woman with hat in swimming pool"
           className="w-full h-48 object-cover"
         />
@@ -28,7 +30,9 @@ export default function Main() {
         <p className="text-center font-light">Happy shopping!</p>
       </div>
       <img
-        src="/images/general/woman-with-hat-bw.jpg"
+        src="/images/general/woman-with-hat-bw-large.jpg"
+        srcSet="/images/general/woman-with-hat-bw-large.jpg 900w, /images/general/woman-with-hat-bw-small.jpg 640w"
+        sizes="min(900px, 100vw)"
         alt="Black and white woman with hat"
         className="w-full"
       />

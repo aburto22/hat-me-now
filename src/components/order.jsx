@@ -107,7 +107,9 @@ export default function Order() {
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
       <div className="self-stretch border-b border-gray-light relative mb-10">
         <img
-          src="/images/general/order-hat.jpg"
+          src="/images/general/order-hat-large.jpg"
+          srcSet="/images/general/order-hat-large.jpg 900w, /images/general/order-hat-small.jpg 640w"
+          sizes="min(900px, 100vw)"
           alt="Woman with hat lying on the ground"
           className="w-full h-48 object-cover"
         />

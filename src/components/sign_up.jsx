@@ -7,7 +7,11 @@ export default function Login() {
   return (
     <div className="h-full flex items-center justify-center text-gray-primary">
       <div className="bg-white border p-3 mr-8 hidden md:block">
-        <img src="/images/general/kid-with-hat.jpg" alt="Kid with a hat" className="max-h-96" />
+        <img
+          src="/images/general/kid-with-hat-small.jpg"
+          alt="Kid with a hat"
+          className="max-h-96"
+        />
       </div>
       <div className="bg-white border border-gray-light px-4 py-6 max-w-xs flex-grow">
         <h1 className="mb-4 text-center font-bold text-xl">Sign Up</h1>
