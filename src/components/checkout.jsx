@@ -47,7 +47,7 @@ export default function Checkout() {
       <button
         type="button"
         onClick={handleCheckout}
-        className="px-4 py-2 bg-blue-primary text-white hover:bg-blue-hover rounded mb-4"
+        className="px-4 py-2 bg-blue-primary-light text-white hover:bg-blue-hover rounded mb-4"
       >
         Checkout my order
       </button>

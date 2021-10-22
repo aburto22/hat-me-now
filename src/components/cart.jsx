@@ -12,7 +12,7 @@ export default function Cart() {
     <Link to={ROUTES.CHECKOUT}>
       <button
         type="button"
-        className="py-2 px-4 bg-blue-primary text-white hover:bg-blue-hover rounded flex"
+        className="py-2 px-4 bg-blue-primary-light text-white hover:bg-blue-hover rounded flex"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
