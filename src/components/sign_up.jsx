@@ -14,11 +14,9 @@ export default function Login() {
         <Form />
         <p className="text-sm text-center">Already have an account?</p>
         <p className="text-sm text-center">
-          Click{" "}
           <Link to={ROUTES.LOGIN} className="text-blue-primary font-bold hover:text-blue-hover">
-            here
-          </Link>{" "}
-          to login.
+            Click here to login.
+          </Link>
         </p>
       </div>
     </div>

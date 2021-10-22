@@ -14,11 +14,13 @@ export default function Login() {
         <Form />
         <p className="text-sm text-center">Don`t have an account?</p>
         <p className="text-sm text-center">
-          Click{" "}
-          <Link to={ROUTES.SIGN_UP} className="text-blue-primary font-bold hover:text-blue-hover">
-            here
-          </Link>{" "}
-          to register.
+          <Link
+            to={ROUTES.SIGN_UP}
+            className="text-blue-primary font-bold hover:text-blue-hover"
+            aria-label="Go to sign-up page"
+          >
+            Click here to register.
+          </Link>
         </p>
       </div>
     </div>
