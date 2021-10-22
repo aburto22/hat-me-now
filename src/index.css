@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .nav-link {
-  @apply border-b border-gray-primary py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase text-center;
+  @apply border-b border-gray-primary py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light-normal uppercase text-center;
 }
 
 .active-nav-link {
