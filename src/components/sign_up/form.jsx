@@ -99,7 +99,7 @@ export default function Form() {
       <button
         type="submit"
         className={`${!btnActive && "cursor-default"} ${
-          btnActive ? "bg-blue-primary" : "bg-blue-disabled"
+          btnActive ? "bg-blue-primary-light" : "bg-blue-disabled"
         } text-white py-2 px-4 rounded ${btnActive && "hover:bg-blue-hover"}`}
         disabled={!btnActive}
       >

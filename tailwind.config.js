@@ -8,9 +8,10 @@ module.exports = {
       },
       colors: {
         blue: {
-          disabled: "#A1C7D4",
-          primary: "#239ECB",
-          hover: "#64B4D1",
+          disabled: "#73BAD3",
+          "primary-light": "#0D9ACE",
+          primary: "#0C5F79",
+          hover: "#40A8CE",
         },
         gray: {
           body: "#fdfdfd",

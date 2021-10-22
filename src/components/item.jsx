@@ -13,7 +13,7 @@ export default function Item() {
   const [isItemBought, setIsItemBought] = useState(false);
 
   const defaultDescription =
-    "An amazing hat. You need to get it NOW! Seriusly, who won't fancy a hat like this? You definetely do.";
+    "An amazing hat. You need to get it NOW! Seriously, who won't fancy a hat like this? You definitely do.";
 
   useEffect(() => {
     async function getItem() {
@@ -77,7 +77,7 @@ export default function Item() {
               <p className="text-2xl mb-4">{item.name}</p>
               <p className="text-xl mb-4">{toUsd(item.price)}</p>
               <div className="flex">
-                <button type="button" onClick={handleDecreaseQty}>
+                <button type="button" onClick={handleDecreaseQty} aria-label="decrease quantity">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -94,7 +94,7 @@ export default function Item() {
                   </svg>
                 </button>
                 <p className="border-b border-light-gray px-2 mx-2">{qty}</p>
-                <button type="button" onClick={handleIncreaseQty}>
+                <button type="button" onClick={handleIncreaseQty} aria-label="increase quantity">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -115,9 +115,11 @@ export default function Item() {
               <button
                 type="button"
                 onClick={handleClick}
-                className={`text-white ${isItemBought ? "bg-blue-disabled" : "bg-blue-primary"} ${
-                  !isItemBought && "hover:bg-blue-hover"
-                } py-2 px-4 rounded ${isItemBought && "cursor-default"}`}
+                className={`text-white ${
+                  isItemBought ? "bg-blue-disabled" : "bg-blue-primary-light"
+                } ${!isItemBought && "hover:bg-blue-hover"} py-2 px-4 rounded ${
+                  isItemBought && "cursor-default"
+                }`}
                 disabled={isItemBought}
               >
                 {isItemBought ? "Item added to cart" : "Add to cart"}

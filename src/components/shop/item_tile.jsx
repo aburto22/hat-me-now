@@ -5,7 +5,7 @@ import toUsd from "../../helpers/money";
 
 export default function ItemTile({ item }) {
   const defaultDescription =
-    "An amazing hat. You need to get it NOW! Seriusly, who won't fancy a hat like this? You definetely do.";
+    "An amazing hat. You need to get it NOW! Seriously, who won't fancy a hat like this? You definitely do.";
 
   return (
     <Link

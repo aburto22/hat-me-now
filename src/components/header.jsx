@@ -33,6 +33,7 @@ export default function Header() {
       <NavLink
         to={ROUTES.PROFILE}
         className="border-b border-gray-primary py-2 px-2 mx-2 text-center hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase"
+        activeClassName="active-nav-link"
       >
         Profile
       </NavLink>
@@ -46,10 +47,10 @@ export default function Header() {
     </>
   ) : (
     <>
-      <NavLink to={ROUTES.LOGIN} className="nav-link">
+      <NavLink to={ROUTES.LOGIN} className="nav-link" activeClassName="active-nav-link">
         Login
       </NavLink>
-      <NavLink to={ROUTES.SIGN_UP} className="nav-link">
+      <NavLink to={ROUTES.SIGN_UP} className="nav-link" activeClassName="active-nav-link">
         Register
       </NavLink>
     </>
@@ -58,16 +59,18 @@ export default function Header() {
   return (
     <div className="bg-white text-gray-primary h-16 mb-8 border-b border-gray-light">
       <div className="max-w-4xl mx-auto flex items-center p-2 relative">
-        <NavLink to={ROUTES.HOME} className="nav-link">
+        <NavLink exact to={ROUTES.HOME} className="nav-link" activeClassName="active-nav-link">
           Home
         </NavLink>
-        <NavLink to={ROUTES.SHOP} className="nav-link">
+        <NavLink to={ROUTES.SHOP} className="nav-link" activeClassName="active-nav-link">
           Shop
         </NavLink>
         <div className="ml-auto flex items-center">
           <NavLink
             to={ROUTES.CART}
+            aria-label="cart"
             className="py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase text-center sm:border-b sm:border-gray-primary flex items-center"
+            activeClassName="active-nav-link sm:border-blue-primary-light"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +90,7 @@ export default function Header() {
           </NavLink>
           <div className="relative ml-auto">
             <button
+              aria-label="open menu"
               type="button"
               onClick={handleToggle}
               className="mt-2 mr-4 sm:hidden hover:text-blue-hover"
@@ -115,6 +119,7 @@ export default function Header() {
                 type="button"
                 className="absolute top-0 right-0 my-3 mx-5 sm:hidden hover:text-blue-hover"
                 onClick={handleToggle}
+                aria-label="close menu"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

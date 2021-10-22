@@ -57,7 +57,12 @@ export default function CartSummaryTable({ items, setItems }) {
         {toUsd(item.qty * item.price)}
       </td>
       <td>
-        <button type="button" className="mx-2" onClick={() => handleRemove(item.itemId)}>
+        <button
+          type="button"
+          className="mx-2"
+          onClick={() => handleRemove(item.itemId)}
+          aria-label="remove item"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -116,7 +121,7 @@ export default function CartSummaryTable({ items, setItems }) {
         </table>
       ) : (
         <p className="font-light mb-6 mx-2 text-center">
-          You don&apos;t have any items on your cart. Go shipping now!
+          You don&apos;t have any items on your cart. Go shopping now!
         </p>
       )}
     </>
