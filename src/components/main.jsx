@@ -16,7 +16,7 @@ export default function Main() {
       <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 mb-6 self-stretch px-2">
         <p className="text-center mb-2 italic max-w-xs font-light">
           This is <span className="text-blue-primary font-bold not-italic">Hat me Now</span>, the
-          most trendy and fashionable hat store you will ever going to find.
+          most trendy and fashionable hat store you will ever find.
         </p>
         <p className="text-center mb-2 italic max-w-xs font-light">
           Do you fancy a hat? Come into the store and take a look at our amazing range of hats.

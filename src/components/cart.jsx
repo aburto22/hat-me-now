@@ -12,7 +12,7 @@ export default function Cart() {
     <Link to={ROUTES.CHECKOUT}>
       <button
         type="button"
-        className="py-2 px-4 bg-blue-primary text-white hover:bg-blue-hover rounded flex"
+        className="py-2 px-4 bg-blue-primary-light text-white hover:bg-blue-hover rounded flex"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ export default function Cart() {
     </Link>
   ) : (
     <div>
-      <p className="text-sm font-light text-center mb-2 max-w-sm px-2">
+      <p className="text-sm font-light text-center mb-6 max-w-sm px-2">
         You have to login before proceeding to the checkout. If you don&apos;t have an account, you
         can register. It is free!
       </p>
@@ -41,7 +41,7 @@ export default function Cart() {
         <Link to={ROUTES.LOGIN} className="sm:w-1/2 px-4 sm:px-2 mb-2">
           <button
             type="button"
-            className="rounded px-4 py-2 bg-blue-primary hover:bg-blue-hover text-white w-full"
+            className="rounded px-4 py-2 bg-blue-primary-light hover:bg-blue-hover text-white w-full"
           >
             Login
           </button>
@@ -49,7 +49,7 @@ export default function Cart() {
         <Link to={ROUTES.SIGN_UP} className="sm:w-1/2 px-4 sm:px-2 mb-2">
           <button
             type="button"
-            className="rounded px-4 py-2 border border-blue-primary text-blue-primary hover:border-blue:hover hover:text-blue-hover w-full"
+            className="rounded px-4 py-2 border border-blue-primary text-blue-primary hover:border-blue-hover hover:text-blue-hover w-full"
           >
             Register
           </button>

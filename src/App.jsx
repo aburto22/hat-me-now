@@ -5,6 +5,7 @@ import UserContext from "./context/user_context";
 import useAuthListener from "./hooks/use_auth_listener";
 import ProtectedRoute from "./components/protected_route";
 import OnlyPublicRoute from "./components/only_public_route";
+import LoadingPage from "./pages/loading_page";
 
 const HomePage = lazy(() => import("./pages/home_page"));
 const LoginPage = lazy(() => import("./pages/login_page"));
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <UserContext.Provider value={user}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingPage />}>
         <Switch>
           <Route exact path={ROUTES.HOME} component={HomePage} />
           <Route exact path={ROUTES.SHOP} component={ShopPage} />
