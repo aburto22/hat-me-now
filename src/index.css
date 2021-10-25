@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 .nav-link {
-  @apply border-b border-gray-primary py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light-normal uppercase text-center;
+  @apply flex items-center py-2 px-1 text-sm font-light-normal uppercase text-center hover:border-blue-hover hover:text-blue-hover sm:border-b sm:border-gray-primary sm:px-2 sm:mx-2;
+}
+
+.nav-link-collapse {
+  @apply block py-2 px-2 text-sm font-light-normal uppercase text-center mx-2 border-b border-gray-primary hover:border-blue-hover hover:text-blue-hover;
 }
 
 .active-nav-link {
-  @apply text-blue-primary-light border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light;
+  @apply text-blue-primary-light sm:border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
+}
+
+.active-nav-link-collapse {
+  @apply text-blue-primary-light border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
 }
