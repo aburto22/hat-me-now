@@ -1,30 +1,30 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
-import CartContext from "../../context/cart_context";
 import { getItemById } from "../../helpers/db";
-import { removeItemFromCart, getCartItemsNum } from "../../helpers/local_storage";
 import toUsd from "../../helpers/money";
 import * as ROUTES from "../../constants/routes";
+import CartItem from "./cart_item";
 
 export default function CartSummaryTable({ items, setItems }) {
   const history = useHistory();
   const [cart, setCart] = useState(localStorage.getItem("cart"));
-  const { setCartItemsNum } = useContext(CartContext);
 
   useEffect(() => {
-    let mounted = true;
     async function getCartItems() {
       Promise.all(
-        JSON.parse(cart).map(async (item) => {
+        JSON.parse(localStorage.getItem("cart")).map(async (item) => {
           const itemDb = await getItemById(item.itemId);
-          return { ...itemDb, qty: item.qty };
+
+          return {
+            ...itemDb,
+            qtyStock: itemDb.qty,
+            qty: item.qty,
+          };
         })
       )
         .then((result) => {
-          if (mounted) {
-            setItems(result);
-          }
+          setItems(result);
         })
         .catch(() => {
           // console.error(err.message, err.code);
@@ -32,65 +32,15 @@ export default function CartSummaryTable({ items, setItems }) {
         });
     }
 
-    if (cart) {
+    if (localStorage.getItem("cart")) {
       getCartItems();
     } else {
       setCart(JSON.stringify([]));
     }
-
-    return () => {
-      mounted = false;
-    };
   }, [cart]);
 
-  function handleRemove(itemId) {
-    const newCart = removeItemFromCart(itemId);
-    setCart(JSON.stringify(newCart));
-    const cartItemsNum = getCartItemsNum();
-    setCartItemsNum(cartItemsNum);
-  }
-
-  const itemsTable = items.map((item, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <tr key={index}>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
-        <Link to={`/item/${item.itemId}`} className="text-blue-primary hover:text-blue-hover">
-          {item.name}
-        </Link>
-      </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
-        {item.qty}
-      </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
-        {toUsd(item.price)}
-      </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
-        {toUsd(item.qty * item.price)}
-      </td>
-      <td>
-        <button
-          type="button"
-          className="mx-2"
-          onClick={() => handleRemove(item.itemId)}
-          aria-label="remove item"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1"
-              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-            />
-          </svg>
-        </button>
-      </td>
-    </tr>
+  const itemsTable = items.map((item) => (
+    <CartItem key={item.itemId} setCart={setCart} item={item} />
   ));
 
   const totalOrder = items.reduce((sum, item) => sum + item.price * item.qty, 0);

@@ -52,3 +52,15 @@ export function getCartItemsNum() {
 
   return cart.reduce((sum, item) => sum + item.qty, 0);
 }
+
+export function changeItemQty(itemId, qty) {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+
+  const index = cart.findIndex((item) => item.itemId === itemId);
+
+  cart[index].qty = qty;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  return cart;
+}
