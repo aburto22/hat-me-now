@@ -115,3 +115,85 @@ export function Close({ className = "h-6 w-6" }) {
 Close.propTypes = {
   className: PropTypes.string.isRequired,
 };
+
+export function Trash({ className = "h-6 w-6" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1"
+        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+      />
+    </svg>
+  );
+}
+
+Trash.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+export function BackArrow({ className = "h-6 w-6" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 25 25"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1"
+        d="M11 17l-5-5m0 0l5-5m-5 5h12"
+      />
+    </svg>
+  );
+}
+
+BackArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+export function Minus({ className = "h-6 w-6" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M20 12H4" />
+    </svg>
+  );
+}
+
+Minus.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+export function Plus({ className = "h-6 w-6" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 4v16m8-8H4" />
+    </svg>
+  );
+}
+
+Plus.propTypes = {
+  className: PropTypes.string.isRequired,
+};

@@ -3,6 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import toUsd from "../helpers/money";
 import { getOrderById, getItemById } from "../helpers/db";
 import * as ROUTES from "../constants/routes";
+import * as SVG from "./svg/svgs";
 import Loading from "./common/loading";
 import UserContext from "../context/user_context";
 
@@ -118,20 +119,7 @@ export default function Order() {
         to={ROUTES.PROFILE}
         className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-52 left-4 sm:left-8"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 25 25"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1"
-            d="M11 17l-5-5m0 0l5-5m-5 5h12"
-          />
-        </svg>
+        <SVG.BackArrow className="h-5 w-5" />
         <p>Go back to profile</p>
       </Link>
       {order ? orderDisplay : <Loading />}
