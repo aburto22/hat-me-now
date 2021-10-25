@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
-import addItemToCart from "../helpers/local_storage";
+import { addItemToCart, getCartItemsNum } from "../helpers/local_storage";
 import Loading from "./common/loading";
 import * as ROUTES from "../constants/routes";
+import * as SVG from "./svg/svgs";
+import CartContext from "../context/cart_context";
 
 export default function Item() {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [qty, setQty] = useState(1);
   const [isItemBought, setIsItemBought] = useState(false);
+  const { setCartItemsNum } = useContext(CartContext);
 
   const defaultDescription =
     "An amazing hat. You need to get it NOW! Seriously, who won't fancy a hat like this? You definitely do.";
@@ -38,6 +41,8 @@ export default function Item() {
 
   async function handleClick() {
     await addItemToCart(itemId, qty);
+    const cartItemsNum = getCartItemsNum();
+    setCartItemsNum(cartItemsNum);
     setIsItemBought(true);
   }
 
@@ -47,20 +52,7 @@ export default function Item() {
         to={ROUTES.SHOP}
         className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 sm:left-8"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 25 25"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1"
-            d="M11 17l-5-5m0 0l5-5m-5 5h12"
-          />
-        </svg>
+        <SVG.BackArrow className="h-5 w-5" />
         <p>Go back to the store</p>
       </Link>
       {item ? (
@@ -78,37 +70,11 @@ export default function Item() {
               <p className="text-xl mb-4">{toUsd(item.price)}</p>
               <div className="flex">
                 <button type="button" onClick={handleDecreaseQty} aria-label="decrease quantity">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1"
-                      d="M20 12H4"
-                    />
-                  </svg>
+                  <SVG.Minus className="h-5 w-5" />
                 </button>
                 <p className="border-b border-light-gray px-2 mx-2">{qty}</p>
                 <button type="button" onClick={handleIncreaseQty} aria-label="increase quantity">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1"
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
+                  <SVG.Plus className="h-5 w-5" />
                 </button>
               </div>
               <p className="text-xs mt-2 mb-4 font-light">qty in stock: {item.qty}</p>

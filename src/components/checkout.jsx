@@ -2,11 +2,13 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../context/user_context";
+import CartContext from "../context/cart_context";
 import { addOrderToUser } from "../helpers/db";
 
 export default function Checkout() {
   const history = useHistory();
   const userId = useContext(UserContext);
+  const { setCartItemsNum } = useContext(CartContext);
 
   async function handleCheckout() {
     let cart = localStorage.getItem("cart");
@@ -20,6 +22,8 @@ export default function Checkout() {
     const orderId = await addOrderToUser(userId, cart);
 
     localStorage.setItem("cart", []);
+
+    setCartItemsNum(0);
 
     history.push(`/order/${orderId}`);
   }

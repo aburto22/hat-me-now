@@ -1,14 +1,18 @@
 import React, { useContext, useState, useEffect } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
+import PropTypes from "prop-types";
 import * as ROUTES from "../constants/routes";
 import UserContext from "../context/user_context";
 import * as SVG from "./svg/svgs";
+import CartContext from "../context/cart_context";
 
-export default function Header() {
+export default function Header({ setMessage = null }) {
   const user = useContext(UserContext);
+  const { cartItemsNum } = useContext(CartContext);
   const history = useHistory();
   const [navCollapseShown, setNavCollapseShown] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     setNavCollapseShown(false);
@@ -17,11 +21,16 @@ export default function Header() {
   function handleLogout() {
     const auth = getAuth();
     signOut(auth)
-      .then(() => history.push(ROUTES.HOME))
-      .catch(() => {
-        // TODO pass error message to error page.
-        // console.error(error.message, error.code);
-        history.push(ROUTES.ERROR);
+      .then(() => {
+        if (location.pathname !== "/") {
+          history.push(ROUTES.HOME, { message: "You have successfully logged-out." });
+        } else {
+          setNavCollapseShown(false);
+          setMessage("You have successfully logged-out.");
+        }
+      })
+      .catch((err) => {
+        history.push(ROUTES.ERROR, { message: err.message, code: err.code });
       });
   }
 
@@ -100,11 +109,16 @@ export default function Header() {
             <NavLink
               to={ROUTES.CART}
               aria-label="cart"
-              className="nav-link"
+              className="nav-link relative"
               activeClassName="active-nav-link"
             >
               <SVG.Cart className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
               <span className="hidden sm:block">Cart</span>
+              {cartItemsNum > 0 && (
+                <div className="bg-blue-primary p-1 rounded-full text-white text-xs h-4 w-4 flex items-center justify-center absolute left-0 top-1">
+                  {cartItemsNum}
+                </div>
+              )}
             </NavLink>
           </li>
           <li>
@@ -141,3 +155,11 @@ export default function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  setMessage: PropTypes.func,
+};
+
+Header.defaultProps = {
+  setMessage: null,
+};

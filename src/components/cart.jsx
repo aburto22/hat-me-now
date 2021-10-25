@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import UserContext from "../context/user_context";
 import * as ROUTES from "../constants/routes";
 import CartSummaryTable from "./cart/cart_summary_table";
+import * as SVG from "./svg/svgs";
 
 export default function Cart() {
   const [items, setItems] = useState([]);
@@ -14,20 +15,7 @@ export default function Cart() {
         type="button"
         className="py-2 px-4 bg-blue-primary-light text-white hover:bg-blue-hover rounded flex"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1"
-            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-          />
-        </svg>
+        <SVG.Cart className="h-6 w-6 mr-2" />
         Proceed to check-out
       </button>
     </Link>
