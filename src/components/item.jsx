@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
-import addItemToCart from "../helpers/local_storage";
+import { addItemToCart, getCartItemsNum } from "../helpers/local_storage";
 import Loading from "./common/loading";
 import * as ROUTES from "../constants/routes";
+import CartContext from "../context/cart_context";
 
 export default function Item() {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [qty, setQty] = useState(1);
   const [isItemBought, setIsItemBought] = useState(false);
+  const { setCartItemsNum } = useContext(CartContext);
 
   const defaultDescription =
     "An amazing hat. You need to get it NOW! Seriously, who won't fancy a hat like this? You definitely do.";
@@ -38,6 +40,8 @@ export default function Item() {
 
   async function handleClick() {
     await addItemToCart(itemId, qty);
+    const cartItemsNum = getCartItemsNum();
+    setCartItemsNum(cartItemsNum);
     setIsItemBought(true);
   }
 

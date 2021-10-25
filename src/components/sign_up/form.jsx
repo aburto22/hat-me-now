@@ -38,11 +38,6 @@ export default function Form() {
 
     await addUserToDb(newUser.userId, email);
 
-    setError("");
-    setEmail("");
-    setPassword("");
-    setConfirmation("");
-
     // TODO send message to login page letting user know account has been created and he can login now.
 
     history.push(ROUTES.HOME, {});

@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import CartContext from "../../context/cart_context";
 import { getItemById } from "../../helpers/db";
-import { removeItemFromCart } from "../../helpers/local_storage";
+import { removeItemFromCart, getCartItemsNum } from "../../helpers/local_storage";
 import toUsd from "../../helpers/money";
 import * as ROUTES from "../../constants/routes";
 
 export default function CartSummaryTable({ items, setItems }) {
   const history = useHistory();
   const [cart, setCart] = useState(localStorage.getItem("cart"));
+  const { setCartItemsNum } = useContext(CartContext);
 
   useEffect(() => {
+    let mounted = true;
     async function getCartItems() {
       Promise.all(
         JSON.parse(cart).map(async (item) => {
@@ -19,7 +22,9 @@ export default function CartSummaryTable({ items, setItems }) {
         })
       )
         .then((result) => {
-          setItems(result);
+          if (mounted) {
+            setItems(result);
+          }
         })
         .catch(() => {
           // console.error(err.message, err.code);
@@ -32,11 +37,17 @@ export default function CartSummaryTable({ items, setItems }) {
     } else {
       setCart(JSON.stringify([]));
     }
+
+    return () => {
+      mounted = false;
+    };
   }, [cart]);
 
   function handleRemove(itemId) {
     const newCart = removeItemFromCart(itemId);
     setCart(JSON.stringify(newCart));
+    const cartItemsNum = getCartItemsNum();
+    setCartItemsNum(cartItemsNum);
   }
 
   const itemsTable = items.map((item, index) => (

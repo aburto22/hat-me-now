@@ -4,9 +4,11 @@ import { getAuth, signOut } from "firebase/auth";
 import * as ROUTES from "../constants/routes";
 import UserContext from "../context/user_context";
 import * as SVG from "./svg/svgs";
+import CartContext from "../context/cart_context";
 
 export default function Header() {
   const user = useContext(UserContext);
+  const { cartItemsNum } = useContext(CartContext);
   const history = useHistory();
   const [navCollapseShown, setNavCollapseShown] = useState(false);
 
@@ -100,11 +102,16 @@ export default function Header() {
             <NavLink
               to={ROUTES.CART}
               aria-label="cart"
-              className="nav-link"
+              className="nav-link relative"
               activeClassName="active-nav-link"
             >
               <SVG.Cart className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
               <span className="hidden sm:block">Cart</span>
+              {cartItemsNum > 0 && (
+                <div className="bg-blue-primary p-1 rounded-full text-white text-xs h-4 w-4 flex items-center justify-center absolute left-0 top-1">
+                  {cartItemsNum}
+                </div>
+              )}
             </NavLink>
           </li>
           <li>

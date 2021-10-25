@@ -1,6 +1,6 @@
 import { getItemById } from "./db";
 
-export default async function addItemToCart(itemId, qty) {
+export async function addItemToCart(itemId, qty) {
   let cart = localStorage.getItem("cart");
 
   if (!cart) {
@@ -24,6 +24,8 @@ export default async function addItemToCart(itemId, qty) {
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  return cart;
 }
 
 export function removeItemFromCart(itemId) {
@@ -37,4 +39,16 @@ export function removeItemFromCart(itemId) {
   }
 
   return cart;
+}
+
+export function getCartItemsNum() {
+  let cart = localStorage.getItem("cart");
+
+  if (!cart || cart?.length < 3) {
+    return 0;
+  }
+
+  cart = JSON.parse(cart);
+
+  return cart.reduce((sum, item) => sum + item.qty, 0);
 }
