@@ -4,7 +4,7 @@ import Header from "../components/header";
 
 export default function ErrorPage({
   location: {
-    state: { message, code },
+    state: { message, code = "" },
   },
 }) {
   return (
@@ -15,7 +15,7 @@ export default function ErrorPage({
         <p className="text-xl mx-2 mb-4 font-bold text-center">
           Looks like there was an error with your request. You can try again later.
         </p>
-        <p className="text-l mx-2 mb-1 font-bold text-center">Error code: {code}</p>
+        {code && <p className="text-l mx-2 mb-1 font-bold text-center">Error code: {code}</p>}
         <p className="text-l mx-2 font-bold text-center">Error message: {message}</p>
       </div>
     </div>
@@ -26,7 +26,7 @@ ErrorPage.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.shape({
       message: PropTypes.string.isRequired,
-      code: PropTypes.string.isRequired,
+      code: PropTypes.string,
     }).isRequired,
   }).isRequired,
 };

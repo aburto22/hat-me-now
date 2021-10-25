@@ -1,8 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
+import FlashMessage from "./common/flash_message";
 
-export default function Main() {
+export default function Main({ message }) {
   return (
-    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary relative">
+      {message.length > 0 && <FlashMessage message={message} />}
       <div className="self-stretch relative">
         <img
           src="/images/general/main-hat-large.jpg"
@@ -39,3 +42,11 @@ export default function Main() {
     </main>
   );
 }
+
+Main.propTypes = {
+  message: PropTypes.string,
+};
+
+Main.defaultProps = {
+  message: "",
+};

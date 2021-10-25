@@ -6,13 +6,20 @@ import ItemTile from "./item_tile";
 export default function AllItemsTiles() {
   const [items, setItems] = useState(Array(6).fill(0));
   useEffect(() => {
+    let mounted = true;
     async function getItems() {
       const result = await getAllItems();
 
-      setItems(result);
+      if (mounted) {
+        setItems(result);
+      }
     }
 
     getItems();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const itemTiles = items.map((item, i) =>

@@ -1,16 +1,18 @@
 import React, { useContext, useState, useEffect } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
+import PropTypes from "prop-types";
 import * as ROUTES from "../constants/routes";
 import UserContext from "../context/user_context";
 import * as SVG from "./svg/svgs";
 import CartContext from "../context/cart_context";
 
-export default function Header() {
+export default function Header({ setMessage = null }) {
   const user = useContext(UserContext);
   const { cartItemsNum } = useContext(CartContext);
   const history = useHistory();
   const [navCollapseShown, setNavCollapseShown] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     setNavCollapseShown(false);
@@ -19,7 +21,14 @@ export default function Header() {
   function handleLogout() {
     const auth = getAuth();
     signOut(auth)
-      .then(() => history.push(ROUTES.HOME))
+      .then(() => {
+        if (location.pathname !== "/") {
+          history.push(ROUTES.HOME, { message: "You have successfully logged-out." });
+        } else {
+          setNavCollapseShown(false);
+          setMessage("You have successfully logged-out.");
+        }
+      })
       .catch((err) => {
         history.push(ROUTES.ERROR, { message: err.message, code: err.code });
       });
@@ -146,3 +155,11 @@ export default function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  setMessage: PropTypes.func,
+};
+
+Header.defaultProps = {
+  setMessage: null,
+};

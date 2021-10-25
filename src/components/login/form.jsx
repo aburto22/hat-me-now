@@ -23,8 +23,7 @@ export default function Form() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        // TODO send message to home page letting user know he has signed in.
-        history.push(ROUTES.HOME, {});
+        history.push(ROUTES.HOME, { message: "You have successfully logged-in." });
       })
       .catch((err) => {
         setError(err.message);
