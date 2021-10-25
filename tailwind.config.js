@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontWeight: {
+        "light-normal": 350,
+      },
       maxWidth: {
         "nav-link": "6rem",
       },
@@ -15,8 +18,10 @@ module.exports = {
         },
         gray: {
           body: "#fdfdfd",
-          light: "#D4D4D8",
+          light: "#ededed",
+          mid: "#D4D4D4",
           primary: "#3F3F46",
+          skeleton: "#dbdbdb",
         },
       },
       backgroundImage: {

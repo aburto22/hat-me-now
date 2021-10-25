@@ -74,7 +74,7 @@ export default function Item() {
               />
             </div>
             <div className="w-full sm:w-1/2 flex flex-col items-center justify-center mb-8">
-              <p className="text-2xl mb-4">{item.name}</p>
+              <h1 className="text-2xl mb-4">{item.name}</h1>
               <p className="text-xl mb-4">{toUsd(item.price)}</p>
               <div className="flex">
                 <button type="button" onClick={handleDecreaseQty} aria-label="decrease quantity">

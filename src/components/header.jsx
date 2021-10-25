@@ -32,14 +32,14 @@ export default function Header() {
     <>
       <NavLink
         to={ROUTES.PROFILE}
-        className="border-b border-gray-primary py-2 px-2 mx-2 text-center hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase"
+        className="border-b border-gray-primary py-2 px-2 mx-2 text-center hover:border-blue-hover hover:text-blue-hover text-sm uppercase font-light-normal"
         activeClassName="active-nav-link"
       >
         Profile
       </NavLink>
       <button
         type="button"
-        className="border-b border-gray-primary py-2 px-2 mx-2 text-center hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase"
+        className="border-b border-gray-primary py-2 px-2 mx-2 text-center hover:border-blue-hover hover:text-blue-hover text-sm uppercase font-light-normal"
         onClick={handleLogout}
       >
         Log out
@@ -57,7 +57,7 @@ export default function Header() {
   );
 
   return (
-    <div className="bg-white text-gray-primary h-16 mb-8 border-b border-gray-light">
+    <div className="bg-white text-gray-primary h-16 mb-8 border-b border-gray-mid">
       <div className="max-w-4xl mx-auto flex items-center p-2 relative">
         <NavLink exact to={ROUTES.HOME} className="nav-link" activeClassName="active-nav-link">
           Home
@@ -69,7 +69,7 @@ export default function Header() {
           <NavLink
             to={ROUTES.CART}
             aria-label="cart"
-            className="py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light uppercase text-center sm:border-b sm:border-gray-primary flex items-center"
+            className="py-2 px-2 mx-2 hover:border-blue-hover hover:text-blue-hover text-sm font-light-normal uppercase text-center sm:border-b sm:border-gray-primary flex items-center"
             activeClassName="active-nav-link sm:border-blue-primary-light"
           >
             <svg
