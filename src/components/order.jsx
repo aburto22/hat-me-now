@@ -111,7 +111,7 @@ export default function Order() {
           alt="Woman with hat lying on the ground"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+        <div className="absolute bg-white bg-opacity-90 top-1/4 w-full py-4">
           <h1 className="text-xl text-center">Your order</h1>
         </div>
       </div>

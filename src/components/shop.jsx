@@ -12,7 +12,7 @@ export default function Shop() {
           alt="Woman with hat with flower"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+        <div className="absolute bg-white bg-opacity-90 top-1/4 w-full py-4">
           <h1 className="text-xl text-center">What are you looking for today?</h1>
         </div>
       </div>
