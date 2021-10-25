@@ -32,7 +32,7 @@ export default function Checkout() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/profile-hat-large.jpg"
@@ -58,6 +58,6 @@ export default function Checkout() {
           <Loading />
         )}
       </div>
-    </div>
+    </main>
   );
 }

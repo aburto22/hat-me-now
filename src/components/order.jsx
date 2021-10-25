@@ -104,7 +104,7 @@ export default function Order() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
       <div className="self-stretch relative">
         <img
           src="/images/general/order-hat-large.jpg"
@@ -138,6 +138,6 @@ export default function Order() {
         <p>Go back to profile</p>
       </Link>
       {order ? orderDisplay : <Loading />}
-    </div>
+    </main>
   );
 }

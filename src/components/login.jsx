@@ -5,7 +5,7 @@ import Form from "./login/form";
 
 export default function Login() {
   return (
-    <div className="h-full flex items-center justify-center text-gray-primary">
+    <main className="h-full flex items-center justify-center text-gray-primary">
       <div className="bg-white border p-3 mr-8 hidden md:block">
         <img
           src="/images/general/kid-with-hat-small.jpg"
@@ -27,6 +27,6 @@ export default function Login() {
           </Link>
         </p>
       </div>
-    </div>
+    </main>
   );
 }

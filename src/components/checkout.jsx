@@ -27,7 +27,7 @@ export default function Checkout() {
   // TODO add validator to prevent checkout if cart is empty.
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8">
       <div className="self-stretch relative">
         <img
           src="/images/general/checkout-hat-large.jpg"
@@ -53,6 +53,6 @@ export default function Checkout() {
       >
         Checkout my order
       </button>
-    </div>
+    </main>
   );
 }

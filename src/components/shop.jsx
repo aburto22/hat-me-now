@@ -6,7 +6,7 @@ import AllItemsTiles from "./shop/all_items_tiles";
 
 export default function Shop() {
   return (
-    <div className="max-w-4xl mx-auto border border-gray-light flex flex-col items-center pb-8 text-gray-primary bg-white overflow-hidden">
+    <main className="max-w-4xl mx-auto border border-gray-light flex flex-col items-center pb-8 text-gray-primary bg-white overflow-hidden">
       <div className="self-stretch relative">
         <img
           src="/images/general/shop-hat-large.jpg"
@@ -24,6 +24,6 @@ export default function Shop() {
       <div className="bg-white">
         <AllItemsTiles />
       </div>
-    </div>
+    </main>
   );
 }

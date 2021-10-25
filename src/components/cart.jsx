@@ -59,7 +59,7 @@ export default function Cart() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/cart-hat-large.jpg"
@@ -74,6 +74,6 @@ export default function Cart() {
       </div>
       <CartSummaryTable items={items} setItems={setItems} />
       {items.length > 0 && checkout}
-    </div>
+    </main>
   );
 }

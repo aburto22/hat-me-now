@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Main() {
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/main-hat-large.jpg"
@@ -36,6 +36,6 @@ export default function Main() {
         alt="Black and white woman with hat"
         className="w-full"
       />
-    </div>
+    </main>
   );
 }

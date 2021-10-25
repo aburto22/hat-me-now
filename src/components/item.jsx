@@ -42,7 +42,7 @@ export default function Item() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary relative">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary relative">
       <Link
         to={ROUTES.SHOP}
         className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 sm:left-8"
@@ -136,6 +136,6 @@ export default function Item() {
       ) : (
         <Loading />
       )}
-    </div>
+    </main>
   );
 }
