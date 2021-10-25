@@ -34,7 +34,7 @@
   "scripts": {
     "lint": "eslint --fix main.js",
     "format": "prettier -w .",
-    "start": "BROWSER=FIREFOX craco start",
+    "start": "BROWSER='Google Chrome Canary' craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

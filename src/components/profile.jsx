@@ -33,13 +33,13 @@ export default function Checkout() {
 
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
-      <div className="self-stretch border-b border-gray-light relative mb-10">
+      <div className="self-stretch relative">
         <img
           src="/images/general/profile-hat-large.jpg"
           srcSet="/images/general/profile-hat-large.jpg 900w, /images/general/profile-hat-small.jpg 640w"
           sizes="min(900px, 100vw)"
           alt="Man with a cowboy hat playing guitar"
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
         <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
           <h1 className="text-xl text-center font-light text-black">Your profile</h1>

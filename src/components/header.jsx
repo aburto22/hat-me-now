@@ -57,7 +57,7 @@ export default function Header() {
   );
 
   return (
-    <div className="bg-white text-gray-primary h-16 mb-8 border-b border-gray-light">
+    <div className="bg-white text-gray-primary h-16 mb-8 border-b border-gray-mid">
       <div className="max-w-4xl mx-auto flex items-center p-2 relative">
         <NavLink exact to={ROUTES.HOME} className="nav-link" activeClassName="active-nav-link">
           Home

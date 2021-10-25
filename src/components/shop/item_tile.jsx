@@ -10,7 +10,7 @@ export default function ItemTile({ item }) {
   return (
     <Link
       to={`/item/${item.itemId}`}
-      className="w-64 bg-white flex flex-col cursor hover:border border-2 border-white hover:border-gray-light items-stretch m-2"
+      className="w-64 bg-white flex flex-col cursor hover:border border-4 border-white hover:border-gray-light items-stretch m-2"
     >
       <div className="w-full mb-4">
         <img

@@ -18,7 +18,8 @@ module.exports = {
         },
         gray: {
           body: "#fdfdfd",
-          light: "#D4D4D8",
+          light: "#ededed",
+          mid: "#D4D4D4",
           primary: "#3F3F46",
           skeleton: "#dbdbdb",
         },

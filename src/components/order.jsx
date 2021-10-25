@@ -105,13 +105,13 @@ export default function Order() {
 
   return (
     <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
-      <div className="self-stretch border-b border-gray-light relative mb-10">
+      <div className="self-stretch relative">
         <img
           src="/images/general/order-hat-large.jpg"
           srcSet="/images/general/order-hat-large.jpg 900w, /images/general/order-hat-small.jpg 640w"
           sizes="min(900px, 100vw)"
           alt="Woman with hat lying on the ground"
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
         <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
           <h1 className="text-xl text-center font-light text-black">Your order</h1>
