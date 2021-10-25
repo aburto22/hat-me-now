@@ -19,7 +19,7 @@ export default function ItemTile({ item }) {
           className="w-full h-32 object-cover"
         />
       </div>
-      <p className="mx-3 text-center mb-2 text-blue-primary font-bold">{item.name}</p>
+      <h2 className="mx-3 text-center mb-2 text-blue-primary font-bold">{item.name}</h2>
       <div className="border-b border-gray-light pb-3 mb-3 h-24 w-auto mx-3 flex items-center">
         <p className="text-sm italic text-center w-44 mx-auto">
           {item.description ? item.description : defaultDescription}
