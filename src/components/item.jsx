@@ -70,7 +70,7 @@ export default function Item() {
               <img
                 src={`/images/items/${item.name.toLowerCase()}.jpg`}
                 className="w-96 mx-auto max-h-96 max-w-full sm:w-auto object-cover sm:object-fit"
-                alt={item.name}
+                alt={item.alt}
               />
             </div>
             <div className="w-full sm:w-1/2 flex flex-col items-center justify-center mb-8">

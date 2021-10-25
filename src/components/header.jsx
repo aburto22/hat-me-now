@@ -81,7 +81,7 @@ export default function Header() {
               className="nav-link"
               activeClassName="active-nav-link"
             >
-              <SVG.Home className="h-6 w-6 sm:h-5 sm:w-5 sm:mr-1" />
+              <SVG.Home className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
               <span className="hidden sm:block">Home</span>
             </NavLink>
           </li>
@@ -92,7 +92,7 @@ export default function Header() {
               className="nav-link"
               activeClassName="active-nav-link"
             >
-              <SVG.Shop className="h-6 w-6 sm:h-5 sm:w-5 sm:mr-1" />
+              <SVG.Shop className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
               <span className="hidden sm:block">Shop</span>
             </NavLink>
           </li>
@@ -103,7 +103,7 @@ export default function Header() {
               className="nav-link"
               activeClassName="active-nav-link"
             >
-              <SVG.Cart className="h-6 w-6 sm:h-5 sm:w-5 sm:mr-1" />
+              <SVG.Cart className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
               <span className="hidden sm:block">Cart</span>
             </NavLink>
           </li>
@@ -114,7 +114,7 @@ export default function Header() {
               onClick={handleToggle}
               className="mt-2 px-1 sm:hidden hover:text-blue-hover"
             >
-              <SVG.Menu className="h-7 w-7" />
+              <SVG.Menu className="h-8 w-8" />
             </button>
           </li>
           <li>

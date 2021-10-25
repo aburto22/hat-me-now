@@ -15,7 +15,7 @@ export default function ItemTile({ item }) {
       <div className="w-full mb-4">
         <img
           src={`/images/items/${item.name.toLowerCase()}.jpg`}
-          alt={item.name}
+          alt={item.alt}
           className="w-full h-32 object-cover"
         />
       </div>
@@ -37,5 +37,6 @@ ItemTile.propTypes = {
     price: PropTypes.number.isRequired,
     qty: PropTypes.number.isRequired,
     itemId: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
   }).isRequired,
 };
