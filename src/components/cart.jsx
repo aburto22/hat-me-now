@@ -59,7 +59,7 @@ export default function Cart() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/cart-hat-large.jpg"
@@ -68,12 +68,12 @@ export default function Cart() {
           alt="Woman with hat in sepia"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
-          <h1 className="text-xl text-center font-light text-black">Your cart</h1>
+        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+          <h1 className="text-xl text-center">Your cart</h1>
         </div>
       </div>
       <CartSummaryTable items={items} setItems={setItems} />
       {items.length > 0 && checkout}
-    </div>
+    </main>
   );
 }

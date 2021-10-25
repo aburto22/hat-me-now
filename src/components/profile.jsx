@@ -32,7 +32,7 @@ export default function Checkout() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/profile-hat-large.jpg"
@@ -41,8 +41,8 @@ export default function Checkout() {
           alt="Man with a cowboy hat playing guitar"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
-          <h1 className="text-xl text-center font-light text-black">Your profile</h1>
+        <div className="absolute bg-white bg-opacity-80 top-1/4 w-full py-4">
+          <h1 className="text-xl text-center">Your profile</h1>
         </div>
       </div>
       <p className="text-2xl mb-4 mx-4 text-center">Profile information and past orders</p>
@@ -58,6 +58,6 @@ export default function Checkout() {
           <Loading />
         )}
       </div>
-    </div>
+    </main>
   );
 }

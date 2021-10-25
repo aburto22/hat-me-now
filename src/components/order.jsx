@@ -98,13 +98,11 @@ export default function Order() {
         </table>
       </>
     ) : (
-      <p className="font-light my-10 text-gray-primary">
-        Looks like this order doesn&apos;t belong to you!
-      </p>
+      <p className="font-light my-10">Looks like this order doesn&apos;t belong to you!</p>
     );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary relative">
       <div className="self-stretch relative">
         <img
           src="/images/general/order-hat-large.jpg"
@@ -113,8 +111,8 @@ export default function Order() {
           alt="Woman with hat lying on the ground"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
-          <h1 className="text-xl text-center font-light text-black">Your order</h1>
+        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+          <h1 className="text-xl text-center">Your order</h1>
         </div>
       </div>
       <Link
@@ -138,6 +136,6 @@ export default function Order() {
         <p>Go back to profile</p>
       </Link>
       {order ? orderDisplay : <Loading />}
-    </div>
+    </main>
   );
 }

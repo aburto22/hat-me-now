@@ -27,7 +27,7 @@ export default function Checkout() {
   // TODO add validator to prevent checkout if cart is empty.
 
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center pb-8 text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/checkout-hat-large.jpg"
@@ -36,8 +36,8 @@ export default function Checkout() {
           alt="Woman with hat with flower"
           className="w-full h-48 object-cover border-b border-gray-light mb-10"
         />
-        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
-          <h1 className="text-xl text-center font-light">Checkout your order now!</h1>
+        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+          <h1 className="text-xl text-center">Checkout your order now!</h1>
         </div>
       </div>
       <p className="font-light mb-6 text-center max-w-md mx-2">
@@ -53,6 +53,6 @@ export default function Checkout() {
       >
         Checkout my order
       </button>
-    </div>
+    </main>
   );
 }

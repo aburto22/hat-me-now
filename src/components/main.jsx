@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Main() {
   return (
-    <div className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
+    <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center text-gray-primary">
       <div className="self-stretch relative">
         <img
           src="/images/general/main-hat-large.jpg"
@@ -11,8 +11,8 @@ export default function Main() {
           alt="Woman with hat in swimming pool"
           className="w-full h-48 object-cover border-b border-gray-light mb-6"
         />
-        <div className="absolute bg-white bg-opacity-50 top-1/4 w-full py-4">
-          <h1 className="text-xl text-center font-light text-black">Welcome!</h1>
+        <div className="absolute bg-white bg-opacity-70 top-1/4 w-full py-4">
+          <h1 className="text-xl text-center">Welcome!</h1>
         </div>
       </div>
       <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 mb-6 self-stretch px-2">
@@ -36,6 +36,6 @@ export default function Main() {
         alt="Black and white woman with hat"
         className="w-full"
       />
-    </div>
+    </main>
   );
 }
