@@ -45,7 +45,7 @@ export default function Checkout() {
           <h1 className="text-xl text-center font-light text-black">Your profile</h1>
         </div>
       </div>
-      <h2 className="text-2xl mb-4 mx-4 text-center">Profile information and past orders</h2>
+      <p className="text-2xl mb-4 mx-4 text-center">Profile information and past orders</p>
       <div>
         {user ? (
           <>
