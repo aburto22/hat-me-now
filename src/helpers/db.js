@@ -92,7 +92,6 @@ export async function addOrderToUser(userId, cart) {
 
     return docRef.id;
   });
-  // .catch((err) => console.error(err.message, err.code));
 }
 
 export async function getUserById(userId) {

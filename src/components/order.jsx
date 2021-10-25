@@ -30,9 +30,8 @@ export default function Order() {
           };
           setOrder(orderWithItemInfo);
         })
-        .catch(() => {
-          // console.error(err.message, err.code);
-          history.push(ROUTES.ERROR);
+        .catch((err) => {
+          history.push(ROUTES.ERROR, { message: err.message, code: err.code });
         });
     }
 
