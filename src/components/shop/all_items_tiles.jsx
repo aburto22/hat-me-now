@@ -26,16 +26,16 @@ export default function AllItemsTiles() {
     item ? (
       <ItemTile item={item} key={item.docId} />
     ) : (
-      <div className="animate-pulse m-2 w-64 flex flex-col items-center pt-1" key={i}>
+      <li className="animate-pulse m-2 w-64 flex flex-col items-center pt-1" key={i}>
         <div className="w-full mb-4 h-32 bg-gray-skeleton" />
         <div className="mx-3 mb-2 font-bold bg-gray-skeleton h-6 w-28 rounded" />
         <div className="border-b border-gray-light pb-3 mb-3 h-24 w-full mx-3 flex items-center justify-center">
           <div className="bg-gray-skeleton h-20 w-44 rounded" />
         </div>
         <div className="mx-3 font-bold text-center mb-8 bg-gray-skeleton h-6 w-20 rounded" />
-      </div>
+      </li>
     )
   );
 
-  return <div className="flex flex-wrap justify-center px-2">{itemTiles}</div>;
+  return <ul className="flex flex-wrap justify-center px-2">{itemTiles}</ul>;
 }
