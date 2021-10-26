@@ -49,13 +49,11 @@ export default function Order() {
           {item.name}
         </Link>
       </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
-        {item.qty}
-      </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">{item.qty}</td>
+      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
         {toUsd(item.price)}
       </td>
-      <td className="border border-light-gray text-sm font-light py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
         {toUsd(item.qty * item.price)}
       </td>
     </tr>
@@ -64,7 +62,7 @@ export default function Order() {
   const orderDisplay =
     userId === order?.userId ? (
       <>
-        <h2 className="font-light mb-6 mt-2 mx-4 text-center">
+        <h2 className="mb-6 mt-2 mx-4 text-center">
           Order Id: <span className="font-bold">{order.orderId}</span>
         </h2>
         <table className="mb-8 mx-2">
@@ -93,7 +91,7 @@ export default function Order() {
               >
                 Total Order Cost
               </td>
-              <td className="border border-light-gray py-2 px-2 text-center text-sm font-boldsm:px-4 ">
+              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold sm:px-4 ">
                 {toUsd(order.totalCost)}
               </td>
             </tr>
@@ -101,7 +99,7 @@ export default function Order() {
         </table>
       </>
     ) : (
-      <p className="font-light my-10">Looks like this order doesn&apos;t belong to you!</p>
+      <p className="my-10">Looks like this order doesn&apos;t belong to you!</p>
     );
 
   return (

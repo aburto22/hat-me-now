@@ -44,7 +44,7 @@ export default function Checkout() {
           <h1 className="text-xl text-center">Checkout your order now!</h1>
         </div>
       </div>
-      <p className="font-light mb-6 text-center max-w-md mx-2">
+      <p className="mb-6 text-center max-w-md mx-2">
         So, you made it all this way, thanks for that. As you know, this is a prototype site, so
         checkout functions, such as forms to input delivery addresses and payment details, are not
         active. However, if you still want to &quot;checkout&quot; your order, click the bottom

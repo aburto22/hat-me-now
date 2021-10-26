@@ -19,18 +19,18 @@ export default function Main({ message }) {
         </div>
       </div>
       <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 mb-6 self-stretch px-2">
-        <p className="text-center mb-2 italic max-w-xs font-light">
+        <p className="text-center mb-2 italic max-w-xs">
           This is <span className="text-blue-primary font-bold not-italic">Hat me Now</span>, the
           most trendy and fashionable hat store you will ever find.
         </p>
-        <p className="text-center mb-2 italic max-w-xs font-light">
+        <p className="text-center mb-2 italic max-w-xs">
           Do you fancy a hat? Come into the store and take a look at our amazing range of hats.
         </p>
-        <p className="text-center mb-2 italic max-w-xs font-light">
+        <p className="text-center mb-2 italic max-w-xs">
           You don&rsquo;t need a hat? Come in as well and we are sure you will find something you
           like.
         </p>
-        <p className="text-center font-light">Happy shopping!</p>
+        <p className="text-center">Happy shopping!</p>
       </div>
       <img
         src="/images/general/woman-with-hat-bw-large.jpg"

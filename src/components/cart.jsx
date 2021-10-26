@@ -21,7 +21,7 @@ export default function Cart() {
     </Link>
   ) : (
     <div>
-      <p className="text-sm font-light text-center mb-6 max-w-sm px-2">
+      <p className="text-sm text-center mb-6 max-w-sm px-2">
         You have to login before proceeding to the checkout. If you don&apos;t have an account, you
         can register. It is free!
       </p>

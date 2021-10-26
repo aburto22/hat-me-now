@@ -24,11 +24,11 @@ export default function Checkout() {
   const dispOrders =
     orders.length > 0 ? (
       <>
-        <p className="font-light mb-4 mx-2">Your previous orders:</p>
+        <p className="mb-4 mx-2">Your previous orders:</p>
         <OrdersTable orders={orders} />
       </>
     ) : (
-      <p className="font-light mb-4 mx-2">You don&apos;t have any orders.</p>
+      <p className="mb-4 mx-2">You don&apos;t have any orders.</p>
     );
 
   return (
@@ -49,7 +49,7 @@ export default function Checkout() {
       <div>
         {user ? (
           <>
-            <p className="font-light mb-2 mx-2">
+            <p className="mb-2 mx-2">
               Your email address: <span className="font-bold text-sm">{user.emailAddress}</span>
             </p>
             {dispOrders}

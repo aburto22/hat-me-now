@@ -5,7 +5,6 @@ import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
 import { addItemToCart, getCartItemsNum } from "../helpers/local_storage";
 import Loading from "./common/loading";
-// import * as ROUTES from "../constants/routes";
 import * as SVG from "./svg/svgs";
 import CartContext from "../context/cart_context";
 
@@ -90,7 +89,7 @@ export default function Item({ from }) {
                   <SVG.Plus className="h-5 w-5" />
                 </button>
               </div>
-              <p className="text-xs mt-2 mb-4 font-light">qty in stock: {item.qty}</p>
+              <p className="text-xs mt-2 mb-4">qty in stock: {item.qty}</p>
               <button
                 type="button"
                 onClick={handleClick}
@@ -107,7 +106,7 @@ export default function Item({ from }) {
           </div>
           <div className="mb-8 px-4 max-w-sm">
             <p className="text-center font-bold text-sm mb-2">Description:</p>
-            <p className="font-light text-center">
+            <p className="text-center text-sm">
               {item.description ? item.description : defaultDescription}
             </p>
           </div>

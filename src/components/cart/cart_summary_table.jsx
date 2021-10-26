@@ -73,14 +73,14 @@ export default function CartSummaryTable({ items, setItems }) {
               >
                 Total
               </td>
-              <td className="border border-light-gray py-2 px-2 text-center text-sm font-boldsm:px-4 ">
+              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold sm:px-4 ">
                 {toUsd(totalOrder)}
               </td>
             </tr>
           </tbody>
         </table>
       ) : (
-        <p className="font-light mb-6 mx-2 text-center">
+        <p className="mb-6 mx-2 text-center">
           You don&apos;t have any items on your cart. Go shopping now!
         </p>
       )}

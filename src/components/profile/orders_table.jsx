@@ -7,7 +7,10 @@ export default function OrdersTable({ orders }) {
   const ordersList = orders.map((order) => (
     <tr key={order.orderId}>
       <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
-        <Link to={`/order/${order.orderId}`} className="text-blue-primary hover:text-blue-hover">
+        <Link
+          to={`/order/${order.orderId}`}
+          className="text-blue-primary font-medium hover:text-blue-hover"
+        >
           {order.orderId}
         </Link>
       </td>
