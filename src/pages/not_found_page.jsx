@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 
-export default function NoteFoundPage() {
+export default function NotFoundPage() {
   return (
     <div className="bg-gray-body bg-body-pattern min-h-screen">
       <Header />

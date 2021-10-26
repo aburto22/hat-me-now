@@ -41,7 +41,10 @@ export default function CartItem({ item, setCart }) {
   return (
     <tr>
       <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
-        <Link to={`/item/${item.itemId}`} className="text-blue-primary hover:text-blue-hover">
+        <Link
+          to={{ pathname: `/item/${item.itemId}`, state: { from: "cart" } }}
+          className="text-blue-primary hover:text-blue-hover"
+        >
           {item.name}
         </Link>
       </td>
