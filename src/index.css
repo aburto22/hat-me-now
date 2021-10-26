@@ -11,11 +11,11 @@
 }
 
 .active-nav-link {
-  @apply text-blue-primary-light sm:border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
+  @apply text-blue-active-link sm:border-blue-active-link hover:text-blue-active-link hover:border-blue-active-link !important;
 }
 
 .active-nav-link-collapse {
-  @apply text-blue-primary-light border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
+  @apply text-blue-active-link border-blue-active-link hover:text-blue-active-link hover:border-blue-active-link !important;
 }
 
 .item-tile-link::after {

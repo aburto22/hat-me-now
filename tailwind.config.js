@@ -13,6 +13,7 @@ module.exports = {
         blue: {
           disabled: "#73BAD3",
           "primary-light": "#0D9ACE",
+          "active-link": "#007eac",
           primary: "#0C5F79",
           hover: "#40A8CE",
         },
