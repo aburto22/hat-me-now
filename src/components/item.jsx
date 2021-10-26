@@ -1,19 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 import { getItemById } from "../helpers/db";
 import toUsd from "../helpers/money";
 import { addItemToCart, getCartItemsNum } from "../helpers/local_storage";
 import Loading from "./common/loading";
-import * as ROUTES from "../constants/routes";
+// import * as ROUTES from "../constants/routes";
 import * as SVG from "./svg/svgs";
 import CartContext from "../context/cart_context";
 
-export default function Item() {
+export default function Item({ from }) {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [qty, setQty] = useState(1);
   const [isItemBought, setIsItemBought] = useState(false);
   const { setCartItemsNum } = useContext(CartContext);
+  const history = useHistory();
 
   const defaultDescription =
     "An amazing hat. You need to get it NOW! Seriously, who won't fancy a hat like this? You definitely do.";
@@ -46,15 +48,26 @@ export default function Item() {
     setIsItemBought(true);
   }
 
+  const goBackText = (() => {
+    if (from === "order") {
+      return "Go back to your order";
+    }
+    if (from === "cart") {
+      return "Go back to your cart";
+    }
+    return "Go back to the store";
+  })();
+
   return (
     <main className="max-w-4xl mx-auto bg-white border border-gray-light flex flex-col items-center px-4 text-gray-primary relative">
-      <Link
-        to={ROUTES.SHOP}
+      <button
+        type="button"
+        onClick={() => history.goBack()}
         className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 sm:left-8"
       >
         <SVG.BackArrow className="h-5 w-5" />
-        <p>Go back to the store</p>
-      </Link>
+        <p>{goBackText}</p>
+      </button>
       {item ? (
         <>
           <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 mt-8 sm:mx-8 lg:mx-0 sm:w-full md:w-4/5">
@@ -105,3 +118,11 @@ export default function Item() {
     </main>
   );
 }
+
+Item.propTypes = {
+  from: PropTypes.string,
+};
+
+Item.defaultProps = {
+  from: "",
+};

@@ -17,3 +17,16 @@
 .active-nav-link-collapse {
   @apply text-blue-primary-light border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
 }
+
+.item-tile-link::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
+
+.tile-container:focus-within .item-tile-link:focus {
+  @apply outline-none;
+}

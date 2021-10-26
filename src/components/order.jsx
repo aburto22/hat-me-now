@@ -42,7 +42,10 @@ export default function Order() {
   const orderTable = order?.items.map((item) => (
     <tr key={item.itemId}>
       <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
-        <Link to={`/item/${item.itemId}`} className="text-blue-primary hover:text-blue-hover">
+        <Link
+          to={{ pathname: `/item/${item.itemId}`, state: { from: "order" } }}
+          className="text-blue-primary hover:text-blue-hover"
+        >
           {item.name}
         </Link>
       </td>

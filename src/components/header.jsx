@@ -133,9 +133,9 @@ export default function Header({ setMessage = null }) {
           </li>
           <li>
             <ul
-              className={`fixed right-0 top-0 h-screen bg-white w-3/4 z-20 ${
-                navCollapseShown ? "flex" : "hidden"
-              } flex-col items-center justify-center border-l border-gray-light sm:flex sm:h-auto sm:w-auto sm:static sm:border-0 sm:flex-row`}
+              className={`fixed left-full top-0 h-screen bg-white w-3/4 z-20 ${
+                navCollapseShown && "transform -translate-x-full"
+              } transition-transform flex flex-col items-center justify-center border-l border-gray-light sm:transition-none sm:transform-none sm:h-auto sm:w-auto sm:static sm:border-0 sm:flex-row`}
             >
               <li>
                 <button

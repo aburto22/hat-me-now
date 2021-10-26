@@ -10,14 +10,16 @@ export default function Footer() {
         aria-label="My Git Hub Profile"
         target="_blank"
         rel="noreferrer"
+        className="block rounded-lg focus:ring-2 focus:ring-gray-primary focus:outline-none"
       >
-        <SVG.GitHub className="h-6 w-6 mr-2" />
+        <SVG.GitHub className="h-6 w-6 m-1" />
       </a>
       <a
         href="mailto:aburto22@gmail.com"
         aria-label="Send me an email"
         target="_blank"
         rel="noreferrer"
+        className="block rounded-lg focus:ring-2 focus:ring-gray-primary focus:outline-none"
       >
         <SVG.Mail className="h-8 w-8" />
       </a>
