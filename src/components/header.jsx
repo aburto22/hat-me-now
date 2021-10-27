@@ -90,8 +90,8 @@ export default function Header({ setMessage = null }) {
               className="nav-link"
               activeClassName="active-nav-link"
             >
-              <SVG.Home className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
-              <span className="hidden sm:block">Home</span>
+              <SVG.Home className="h-7 w-7 mobile:h-5 mobile:w-5 mobile:mr-1" />
+              <span className="hidden mobile:block">Home</span>
             </NavLink>
           </li>
           <li>
@@ -101,8 +101,8 @@ export default function Header({ setMessage = null }) {
               className="nav-link"
               activeClassName="active-nav-link"
             >
-              <SVG.Shop className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
-              <span className="hidden sm:block">Shop</span>
+              <SVG.Shop className="h-7 w-7 mobile:h-5 mobile:w-5 mobile:mr-1" />
+              <span className="hidden mobile:block">Shop</span>
             </NavLink>
           </li>
           <li className="ml-auto">
@@ -112,8 +112,8 @@ export default function Header({ setMessage = null }) {
               className="nav-link relative"
               activeClassName="active-nav-link"
             >
-              <SVG.Cart className="h-7 w-7 sm:h-5 sm:w-5 sm:mr-1" />
-              <span className="hidden sm:block">Cart</span>
+              <SVG.Cart className="h-7 w-7 mobile:h-5 mobile:w-5 mobile:mr-1" />
+              <span className="hidden mobile:block">Cart</span>
               {cartItemsNum > 0 && (
                 <div className="bg-blue-primary p-1 rounded-full text-white text-xs h-4 w-4 flex items-center justify-center absolute left-0 top-1">
                   {cartItemsNum}
@@ -126,7 +126,7 @@ export default function Header({ setMessage = null }) {
               aria-label="open menu"
               type="button"
               onClick={handleToggle}
-              className="mt-2 px-1 sm:hidden hover:text-blue-hover"
+              className="mt-2 px-1 mobile:hidden hover:text-blue-hover"
             >
               <SVG.Menu className="h-8 w-8" />
             </button>
@@ -135,12 +135,12 @@ export default function Header({ setMessage = null }) {
             <ul
               className={`fixed left-full top-0 h-screen bg-white w-3/4 z-20 ${
                 navCollapseShown && "transform -translate-x-full"
-              } transition-transform flex flex-col items-center justify-center border-l border-gray-light sm:transition-none sm:transform-none sm:h-auto sm:w-auto sm:static sm:border-0 sm:flex-row`}
+              } transition-transform flex flex-col items-center justify-center border-l border-gray-light mobile:transition-none mobile:transform-none mobile:h-auto mobile:w-auto mobile:static mobile:border-0 mobile:flex-row`}
             >
               <li>
                 <button
                   type="button"
-                  className="absolute top-0 right-0 my-4 mx-3 hover:text-blue-hover sm:hidden"
+                  className="absolute top-0 right-0 my-4 mx-3 hover:text-blue-hover mobile:hidden"
                   onClick={handleToggle}
                   aria-label="close menu"
                 >
