@@ -9,6 +9,9 @@ module.exports = {
       maxWidth: {
         "nav-link": "6rem",
       },
+      spacing: {
+        104: "26rem",
+      },
       colors: {
         blue: {
           disabled: "#73BAD3",
@@ -30,6 +33,7 @@ module.exports = {
       },
       screens: {
         mobile: "40em",
+        tablet: "48em",
       },
     },
   },

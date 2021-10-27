@@ -18,7 +18,7 @@ export default function Main({ message }) {
           <h1 className="text-xl text-center">Welcome!</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center max-w-sm mx-auto py-10 sm:py-14 mb-6 self-stretch px-2">
+      <div className="flex flex-col items-center max-w-sm mx-auto py-10 mobile:py-14 mb-6 self-stretch px-2">
         <p className="text-center mb-2 italic max-w-xs">
           This is <span className="text-blue-primary font-bold not-italic">Hat me Now</span>, the
           most trendy and fashionable hat store you will ever find.
