@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .nav-link {
-  @apply flex flex-shrink items-center py-2 px-1 text-sm font-light-normal uppercase text-center hover:border-blue-hover hover:text-blue-hover sm:flex-shrink-0 sm:border-b sm:border-gray-primary sm:px-2 sm:mx-2;
+  @apply flex flex-shrink items-center py-2 px-1 text-sm font-light-normal uppercase text-center hover:border-blue-hover hover:text-blue-hover mobile:flex-shrink-0 mobile:border-b mobile:border-gray-primary mobile:px-2 mobile:mx-2;
 }
 
 .nav-link-collapse {
@@ -11,7 +11,7 @@
 }
 
 .active-nav-link {
-  @apply text-blue-primary-light sm:border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
+  @apply text-blue-primary-light mobile:border-blue-primary-light hover:text-blue-primary-light hover:border-blue-primary-light !important;
 }
 
 .active-nav-link-collapse {
