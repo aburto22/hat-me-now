@@ -50,16 +50,16 @@ export default function CartSummaryTable({ items, setItems }) {
         <table className="mb-8 mx-2">
           <thead>
             <tr>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Item
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Qty
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Unit Price
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Total Item Cost
               </th>
             </tr>
@@ -69,11 +69,11 @@ export default function CartSummaryTable({ items, setItems }) {
             <tr>
               <td
                 colSpan={3}
-                className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 "
+                className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 "
               >
                 Total
               </td>
-              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold sm:px-4 ">
+              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold mobile:px-4 ">
                 {toUsd(totalOrder)}
               </td>
             </tr>

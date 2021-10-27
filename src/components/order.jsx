@@ -41,7 +41,7 @@ export default function Order() {
 
   const orderTable = order?.items.map((item) => (
     <tr key={item.itemId}>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         <Link
           to={{ pathname: `/item/${item.itemId}`, state: { from: "order" } }}
           className="text-blue-primary hover:text-blue-hover"
@@ -49,11 +49,13 @@ export default function Order() {
           {item.name}
         </Link>
       </td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">{item.qty}</td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
+        {item.qty}
+      </td>
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         {toUsd(item.price)}
       </td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         {toUsd(item.qty * item.price)}
       </td>
     </tr>
@@ -68,16 +70,16 @@ export default function Order() {
         <table className="mb-8 mx-2">
           <thead>
             <tr>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Item
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Qty
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Unit Price
               </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 text-center">
+              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Total Item Cost
               </th>
             </tr>
@@ -87,11 +89,11 @@ export default function Order() {
             <tr>
               <td
                 colSpan={3}
-                className="border border-light-gray text-sm font-bold py-2 px-2 sm:px-4 "
+                className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 "
               >
                 Total Order Cost
               </td>
-              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold sm:px-4 ">
+              <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold mobile:px-4 ">
                 {toUsd(order.totalCost)}
               </td>
             </tr>
@@ -118,7 +120,7 @@ export default function Order() {
       </div>
       <Link
         to={ROUTES.PROFILE}
-        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-52 left-4 sm:left-8"
+        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-52 left-4 mobile:left-8"
       >
         <SVG.BackArrow className="h-5 w-5" />
         <p>Go back to profile</p>

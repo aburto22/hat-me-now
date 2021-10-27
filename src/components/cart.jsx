@@ -25,8 +25,8 @@ export default function Cart() {
         You have to login before proceeding to the checkout. If you don&apos;t have an account, you
         can register. It is free!
       </p>
-      <div className="flex flex-col max-w-sm sm:flex-row">
-        <Link to={ROUTES.LOGIN} className="sm:w-1/2 px-4 sm:px-2 mb-2">
+      <div className="flex flex-col max-w-sm mobile:flex-row">
+        <Link to={ROUTES.LOGIN} className="mobile:w-1/2 px-4 mobile:px-2 mb-2">
           <button
             type="button"
             className="rounded px-4 py-2 bg-blue-primary-light hover:bg-blue-hover text-white w-full"
@@ -34,7 +34,7 @@ export default function Cart() {
             Login
           </button>
         </Link>
-        <Link to={ROUTES.SIGN_UP} className="sm:w-1/2 px-4 sm:px-2 mb-2">
+        <Link to={ROUTES.SIGN_UP} className="mobile:w-1/2 px-4 mobile:px-2 mb-2">
           <button
             type="button"
             className="rounded px-4 py-2 border border-blue-primary text-blue-primary hover:border-blue-hover hover:text-blue-hover w-full"

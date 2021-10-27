@@ -40,7 +40,7 @@ export default function CartItem({ item, setCart }) {
 
   return (
     <tr>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         <Link
           to={{ pathname: `/item/${item.itemId}`, state: { from: "cart" } }}
           className="text-blue-primary hover:text-blue-hover font-medium"
@@ -48,15 +48,15 @@ export default function CartItem({ item, setCart }) {
           {item.name}
         </Link>
       </td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         <select value={qty} onChange={handleChangeQty}>
           {qtySelect}
         </select>
       </td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         {toUsd(item.price)}
       </td>
-      <td className="border border-light-gray text-sm py-1 px-2 sm:px-4 text-center">
+      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         {toUsd(item.qty * item.price)}
       </td>
       <td>

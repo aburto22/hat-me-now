@@ -62,22 +62,22 @@ export default function Item({ from }) {
       <button
         type="button"
         onClick={() => history.goBack()}
-        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 sm:left-8"
+        className="text-blue-primary hover:text-blue-hover text-xs flex absolute top-4 left-4 mobile:left-8"
       >
         <SVG.BackArrow className="h-5 w-5" />
         <p>{goBackText}</p>
       </button>
       {item ? (
         <>
-          <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 mt-8 sm:mx-8 lg:mx-0 sm:w-full md:w-4/5">
-            <div className="sm:w-1/2 mb-8 w-full">
+          <div className="flex flex-wrap pt-6 border-b border-gray-light mb-8 mx-0 mt-8 mobile:mx-8 lg:mx-0 mobile:w-full tablet:w-4/5">
+            <div className="mobile:w-1/2 mb-8 w-full">
               <img
                 src={`/images/items/${item.name.toLowerCase()}.jpg`}
-                className="w-96 mx-auto max-h-96 max-w-full sm:w-auto object-cover sm:object-fit"
+                className="w-96 mx-auto max-h-96 max-w-full mobile:w-auto object-cover mobile:object-fit"
                 alt={item.alt}
               />
             </div>
-            <div className="w-full sm:w-1/2 flex flex-col items-center justify-center mb-8">
+            <div className="w-full mobile:w-1/2 flex flex-col items-center justify-center mb-8">
               <h1 className="text-2xl mb-4">{item.name}</h1>
               <p className="text-xl mb-4">{toUsd(item.price)}</p>
               <div className="flex">
