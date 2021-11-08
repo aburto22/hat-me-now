@@ -47,30 +47,21 @@ export default function CartSummaryTable({ items, setItems }) {
   return (
     <>
       {cart?.length > 2 ? (
-        <table className="mb-8 mx-2">
+        <table className="mb-8 w-full max-w-sm mx-auto">
           <thead>
             <tr>
               <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
                 Item
               </th>
               <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
-                Qty
-              </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
-                Unit Price
-              </th>
-              <th className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 text-center">
-                Total Item Cost
+                Cost
               </th>
             </tr>
           </thead>
           <tbody>
             {itemsTable}
             <tr>
-              <td
-                colSpan={3}
-                className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 "
-              >
+              <td className="border border-light-gray text-sm font-bold py-2 px-2 mobile:px-4 ">
                 Total
               </td>
               <td className="border border-light-gray py-2 px-2 text-center text-sm font-bold mobile:px-4 ">
