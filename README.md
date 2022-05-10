@@ -1,6 +1,7 @@
 # Hat Me Now
 > Fictitious e-commerce website selling hat.
-> The store is hosted in vercel [_Click here to take a look._](https://hat-me-now.vercel.app/)
+>
+> The store is hosted in vercel: [_Click here to take a look._](https://hat-me-now.vercel.app/)
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -58,7 +59,7 @@ In order to run a local copy, users need to include an .env file with the follow
 The project is currently completed, although some additional features might be included in the future.
 
 
-## New features and bugs
+## New features
 Future features:
 - Admin page to update items.
 - Google login.
