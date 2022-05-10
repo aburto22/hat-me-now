@@ -60,7 +60,9 @@ export default function Cart() {
           <h1 className="text-xl text-center">Your cart</h1>
         </div>
       </div>
-      <CartSummaryTable items={items} setItems={setItems} />
+      <div className="px-2 w-full">
+        <CartSummaryTable items={items} setItems={setItems} />
+      </div>
       {items.length > 0 && checkout}
     </main>
   );

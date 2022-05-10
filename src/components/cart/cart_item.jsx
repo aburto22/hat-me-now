@@ -41,33 +41,39 @@ export default function CartItem({ item, setCart }) {
   return (
     <tr>
       <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
-        <Link
-          to={{ pathname: `/item/${item.itemId}`, state: { from: "cart" } }}
-          className="text-blue-primary hover:text-blue-hover font-medium"
-        >
-          {item.name}
-        </Link>
-      </td>
-      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
-        <select value={qty} onChange={handleChangeQty}>
-          {qtySelect}
-        </select>
-      </td>
-      <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
-        {toUsd(item.price)}
+        <div className="flex items-center mb-2 mt-1">
+          <img
+            src={`images/items/small/${item.name.toLowerCase()}.jpg`}
+            alt={item.alt}
+            className="h-12 w-12 object-cover mr-4"
+          />
+          <Link
+            to={{ pathname: `/item/${item.itemId}`, state: { from: "cart" } }}
+            className="text-blue-primary hover:text-blue-hover font-medium"
+          >
+            {item.name}
+          </Link>
+        </div>
+        <div className="flex text-xs items-center">
+          <div className="flex mr-4">
+            <p className="mr-1">qty: </p>
+            <select value={qty} onChange={handleChangeQty}>
+              {qtySelect}
+            </select>
+          </div>
+          <p className="mr-4">{toUsd(item.price)}</p>
+          <button
+            type="button"
+            className="mx-2"
+            onClick={() => handleRemove(item.itemId)}
+            aria-label="remove item"
+          >
+            <SVG.Trash className="h-5 w-5" />
+          </button>
+        </div>
       </td>
       <td className="border border-light-gray text-sm py-1 px-2 mobile:px-4 text-center">
         {toUsd(item.qty * item.price)}
-      </td>
-      <td>
-        <button
-          type="button"
-          className="mx-2"
-          onClick={() => handleRemove(item.itemId)}
-          aria-label="remove item"
-        >
-          <SVG.Trash className="h-5 w-5" />
-        </button>
       </td>
     </tr>
   );
@@ -80,6 +86,7 @@ CartItem.propTypes = {
     qtyStock: PropTypes.number.isRequired,
     itemId: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    alt: PropTypes.string,
   }).isRequired,
   setCart: PropTypes.func.isRequired,
 };
